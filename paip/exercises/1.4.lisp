@@ -1,0 +1,11 @@
+(defun au9-count-anywhere (ex1 ex2)
+  (cond ((equal ex1 ex2) 1)
+	((or (atom ex2) (null ex2)) 0)
+	(t (+ (au9-count-anywhere ex1 (car ex2))
+	      (au9-count-anywhere ex1 (cdr ex2))))))
+
+(defun count-anywhere (item tree)
+  (cond ((eql item tree) 1)
+	((atom tree) 0)
+	(t (+ (count-anywhere item (first tree))
+	      (count-anywhere item (rest tree))))))
