@@ -31,6 +31,20 @@ def p02_reverse(s: str) -> str:
     return s[::-1]
 
 
+p00_2020 = p02_reverse
+
+
+def p01_2020(s: str) -> str:
+    """
+    >>> p01_2020('schooled')
+    'shoe'
+    """
+    res: List[str] = []
+    for i in [1, 3, 5, 7]:
+        res.append(s[i - 1])
+    return "".join(res)
+
+
 def p03(s: str) -> List[int]:
     """
     >>> s = 'Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.'
