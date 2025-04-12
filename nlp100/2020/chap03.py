@@ -1,13 +1,12 @@
 import gzip
 import json
+import re
 from pathlib import Path
-from typing import Optional
+from typing import Generator
+from urllib.parse import unquote
 
 
-def p20() -> Optional[dict[str, str]]:
-    """
-    >>> p20()
-    """
+def p20() -> Generator[str, None, None]:
     json_path = (
         (Path(__file__) / ".." / "data" / "enwiki-country.json.gz")
         .resolve()
@@ -18,13 +17,67 @@ def p20() -> Optional[dict[str, str]]:
         for record in content.splitlines():
             obj = json.loads(record)
             if "United Kingdom" in obj["title"]:
-                print(obj["text"])
-                with open("./article.txt", "w", encoding="utf-8") as article:
-                    json.dump(
-                        obj["text"], article, ensure_ascii=False, indent=2
-                    )
-                return obj
-    return None
+                content: str = obj["text"]
+                for line in content.split("\n"):
+                    yield unquote(line)
+
+
+def p21():
+    """
+    >>> for line in p21():
+    ...     print(line)
+    ...
+    [[Category:United Kingdom| ]]
+    ...
+    [[Category:Western European countries]]
+    """
+    for line in p20():
+        if line.strip().startswith("[[Category"):
+            yield line
+
+
+def p22():
+    """
+    >>> for line in p22():
+    ...     print(line)
+    ...
+    United Kingdom|
+    ...
+    Western European countries
+    """
+    pat = re.compile(r"\[\[Category:(.+)\]\]")
+    for line in p21():
+        yield re.sub(pat, r"\1", line).strip()
+
+
+def p23():
+    """
+    >>> {'level': 1, 'name': 'History'} in p23()
+    True
+    """
+    pat = re.compile(r"([=]+)([^=]+)([=]+)")
+    for line in p20():
+        if matched := pat.match(line):
+            prefix, title, _ = matched.groups()
+            yield {"level": len(prefix) - 1, "name": title.strip()}
+
+
+def p24():
+    """
+    >>> for media_file in p24():
+    ...     print(media_file)
+    ...
+    Royal Coat of Arms of the United Kingdom.svg
+    ...
+    Britannia-Statue.jpg
+    """
+    pat = re.compile(r"\[\[File:(.*?)\|")
+    for line in p20():
+        for matched in pat.finditer(line):
+            yield matched.group(1)
+
+def p25():
+    
 
 
 if __name__ == "__main__":
