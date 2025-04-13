@@ -6,7 +6,7 @@ from typing import Generator
 from urllib.parse import unquote
 
 
-def p20() -> Generator[str, None, None]:
+def p20(multipline=True) -> Generator[str, None, None]:
     json_path = (
         (Path(__file__) / ".." / "data" / "enwiki-country.json.gz")
         .resolve()
@@ -18,8 +18,11 @@ def p20() -> Generator[str, None, None]:
             obj = json.loads(record)
             if "United Kingdom" in obj["title"]:
                 content: str = obj["text"]
-                for line in content.split("\n"):
-                    yield unquote(line)
+                if multipline:
+                    for line in content.split("\n"):
+                        yield unquote(line)
+                else:
+                    yield unquote(content)
 
 
 def p21():
@@ -76,8 +79,44 @@ def p24():
         for matched in pat.finditer(line):
             yield matched.group(1)
 
-def p25():
-    
+
+def p25() -> dict[str, str]:
+    """
+    >>> res = p25()
+    >>> res.get('common_name', None)
+    'United Kingdom'
+    """
+    pat_infobox = re.compile(r"{{Infobox country(.*?}})", re.DOTALL)
+    pat_fields = re.compile(r"\|(.*?) = (.*)")
+    text = "\n".join(line for line in p20())
+    matched = pat_infobox.search(text)
+    res: dict[str, str] = {}
+    if matched:
+        infobox_lines = matched.group(0).split("\n")
+        for line in infobox_lines:
+            if (
+                line.startswith("|")
+                and (fields := pat_fields.search(line)) is not None
+            ):
+                key = fields.group(1).strip()
+                val = fields.group(2).strip()
+                res[key] = val
+    return res
+
+
+def p26():
+    """
+    >>> p26()
+    """
+    res: dict[str, str] = {}
+    pat = re.compile(r"(\'+)(.*?)(\'+)")
+    res: dict[str, str] = {}
+    for key, val in p25().items():
+        val_new = pat.sub(lambda x: x.group(2), val)
+        if val != val_new:
+            print(val_new)
+        res[key] = val_new
+    return res
 
 
 if __name__ == "__main__":
