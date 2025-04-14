@@ -24,6 +24,16 @@ def p20(multipline=True) -> Generator[str, None, None]:
                 else:
                     yield unquote(content)
 
+def select_inside_parenthese(paragraph: str, parentheses: str) -> str:
+    left, right = parentheses.split(",")
+    selected = []
+    level = []
+    is_inside_parentheses = False
+    for line in paragraph.split():
+        if line.startswith(left):
+            is_inside_parentheses
+            selected.append(line)
+
 
 def p21():
     """
