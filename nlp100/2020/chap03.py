@@ -6,7 +6,7 @@ from typing import Generator
 from urllib.parse import unquote
 
 
-def p20(multipline=True) -> Generator[str, None, None]:
+def p20(multipline: bool = True) -> Generator[str, None, None]:
     json_path = (
         (Path(__file__) / ".." / "data" / "enwiki-country.json.gz")
         .resolve()
@@ -24,15 +24,27 @@ def p20(multipline=True) -> Generator[str, None, None]:
                 else:
                     yield unquote(content)
 
-def select_inside_parenthese(paragraph: str, parentheses: str) -> str:
+
+def select_inside_parenthese(
+    paragraph: str, parentheses: str, auxilary_pattern: re.Pattern[str]
+) -> Generator[str, None, None]:
     left, right = parentheses.split(",")
-    selected = []
-    level = []
-    is_inside_parentheses = False
-    for line in paragraph.split():
-        if line.startswith(left):
-            is_inside_parentheses
-            selected.append(line)
+    level: list[str] = []
+    is_selected = False
+    for line in paragraph.split("\n"):
+        if left in line:
+            if auxilary_pattern.match(line):
+                is_selected = True
+            level.append(left)
+        if right in line:
+            if len(level):
+                level.pop()
+            if is_selected and len(level) == 0:
+                is_selected = False
+                yield line
+                break
+        if is_selected:
+            yield line
 
 
 def p21():
@@ -96,21 +108,20 @@ def p25() -> dict[str, str]:
     >>> res.get('common_name', None)
     'United Kingdom'
     """
-    pat_infobox = re.compile(r"{{Infobox country(.*?}})", re.DOTALL)
+    text = "\n".join(p20(True))
+    paretheses = "{{,}}"
+    auxilary_pattern = re.compile(r".*Infobox.*")
     pat_fields = re.compile(r"\|(.*?) = (.*)")
-    text = "\n".join(line for line in p20())
-    matched = pat_infobox.search(text)
     res: dict[str, str] = {}
-    if matched:
-        infobox_lines = matched.group(0).split("\n")
-        for line in infobox_lines:
-            if (
-                line.startswith("|")
-                and (fields := pat_fields.search(line)) is not None
-            ):
-                key = fields.group(1).strip()
-                val = fields.group(2).strip()
-                res[key] = val
+
+    for line in select_inside_parenthese(text, paretheses, auxilary_pattern):
+        # if line.startswith("|") and (fields := pat_fields.search(line)):
+        #     print(f"{fields=}")
+        #     key = fields.group(1).strip()
+        #     val = fields.group(2).strip()
+        #     res[key] = val
+        print(f"{line=}")
+
     return res
 
 
