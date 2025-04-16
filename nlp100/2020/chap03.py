@@ -115,7 +115,7 @@ def p25() -> dict[str, str]:
     res: dict[str, str] = {}
 
     for line in select_inside_parenthese(text, paretheses, auxilary_pattern):
-        # if line.startswith("|") and (fields := pat_fields.search(line)):
+        # if fields := pat_fields.search(line):
         #     print(f"{fields=}")
         #     key = fields.group(1).strip()
         #     val = fields.group(2).strip()
