@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import re
+from pprint import pprint
 from typing import Generator, Iterable
 
 mediawiki_text = """
@@ -25,18 +27,29 @@ mediawiki_text = """
 
 
 class Block:
-    def __init__(self, lines: list[str], block_type: str):
+    def __init__(self, name: str, lines: list[str], block_type: str):
         self.content = lines
         self.block_type = block_type
+        self.name = name
 
     def __str__(self):
-        return "\n".join(self.content)
+        return str(self.to_dict())
+
+    def to_dict(self) -> dict[str, str]:
+        return {
+            "content": "\n".join(self.content),
+            "block_type": self.block_type,
+            "name": self.name,
+        }
 
     @staticmethod
     def from_stream(stream: Iterable[str]) -> Generator[Block, None, None]:
         collected: list[str] = []
+        name = "Unknown"
+        block_type = "Unknown"
         block_start, block_end = "{{,}}".split(",")
         is_selected = False
+        block_name_pat = re.compile(r"\|\s*(\w+)\s*=\s*\{\{(\w+)\s*.*")
         for line in stream:
             if block_start in line and block_end in line:
                 block_pos_start, block_pos_end = line.find(
@@ -44,14 +57,17 @@ class Block:
                 ), line.find(block_end)
                 collected.append(line[block_pos_start + 2 : block_pos_end])
                 is_selected = False
+                if matched := block_name_pat.match(line):
+                    name = matched.group(1)
+                    block_type = matched.group(2)
             elif block_start in line:
                 block_pos_start = line.find(block_start)
-                collected.append(line[block_pos_start+2:])
+                collected.append(line[block_pos_start + 2 :])
                 is_selected = True
             elif block_end in line:
                 block_pos_end = line.find(block_end)
                 collected.append(line[:block_pos_end])
-                yield Block(collected)
+                yield Block(name, collected, block_type)
                 collected.clear()
                 is_selected = False
             else:
@@ -61,7 +77,7 @@ class Block:
 
 def main():
     for block in Block.from_stream(mediawiki_text.split("\n")):
-        print(block)
+        pprint(block)
 
 
 if __name__ == "__main__":
