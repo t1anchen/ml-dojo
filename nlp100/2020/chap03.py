@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 import gzip
 import json
 import re
 from pathlib import Path
-from typing import Generator
+from typing import Generator, Iterable
 from urllib.parse import unquote
 
 
@@ -75,6 +77,7 @@ def p22():
         yield re.sub(pat, r"\1", line).strip()
 
 
+
 def p23():
     """
     >>> {'level': 1, 'name': 'History'} in p23()
@@ -100,6 +103,60 @@ def p24():
     for line in p20():
         for matched in pat.finditer(line):
             yield matched.group(1)
+
+class Block:
+    def __init__(self, name: str, lines: list[str], block_type: str):
+        self.content = lines
+        self.block_type = block_type
+        self.name = name
+
+    def __str__(self):
+        return str(self.to_dict())
+
+    def to_dict(self) -> dict[str, str]:
+        return {
+            "content": "\n".join(self.content),
+            "block_type": self.block_type,
+            "name": self.name,
+        }
+
+    @staticmethod
+    def from_stream(stream: Iterable[str]) -> Generator[Block, None, None]:
+        collected: list[str] = []
+        name = "Unknown"
+        block_type = "Unknown"
+        block_start, block_end = "{{,}}".split(",")
+        is_selected = False
+        block_name_pat = re.compile(r"\|\s*(\w+)\s*=\s*\{\{(\w+)\s*(.*)")
+        for line in stream:
+            if block_start in line and block_end in line:
+                block_pos_start, block_pos_end = line.find(
+                    block_start
+                ), line.find(block_end)
+                collected.append(line[block_pos_start + 2 : block_pos_end])
+                is_selected = False
+                if matched := block_name_pat.match(line):
+                    name = matched.group(1)
+                    block_type = matched.group(2)
+                    content_first_line = matched.group(3)
+            elif block_start in line:
+                block_pos_start = line.find(block_start)
+                is_selected = True
+                if matched := block_name_pat.match(line):
+                    name = matched.group(1)
+                    block_type = matched.group(2)
+                    content_first_line = matched.group(3)
+                    if content_first_line:
+                        collected.append(content_first_line)
+            elif block_end in line:
+                block_pos_end = line.find(block_end)
+                collected.append(line[:block_pos_end])
+                yield Block(name, collected, block_type)
+                collected.clear()
+                is_selected = False
+            else:
+                if is_selected and line:
+                    collected.append(line)
 
 
 def p25() -> dict[str, str]:
