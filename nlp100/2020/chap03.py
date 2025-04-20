@@ -4,8 +4,10 @@ import gzip
 import json
 import re
 from pathlib import Path
-from typing import Generator, Iterable
+from typing import Generator, Iterable, Match, Optional, TypeVar
 from urllib.parse import unquote
+
+T = TypeVar("T")
 
 
 def p20(multipline: bool = True) -> Generator[str, None, None]:
@@ -49,14 +51,41 @@ def select_inside_parenthese(
             yield line
 
 
+def first(stream: Iterable[T]) -> Generator[T, None, None]:
+    first_elem = None
+    for x in stream:
+        first_elem = x
+        break
+    if first_elem is not None:
+        yield first_elem
+
+
+def last(stream: Iterable[T]) -> Generator[T, None, None]:
+    last_elem = None
+    for x in stream:
+        last_elem = x
+    if last_elem is not None:
+        yield last_elem
+
+
+def double_ends(stream: Iterable[T]) -> tuple[Optional[T], Optional[T]]:
+    first_elem, last_elem = None, None
+    for x in stream:
+        first_elem = x
+        last_elem = x
+        break
+    for x in stream:
+        last_elem = x
+    return first_elem, last_elem
+
+
 def p21():
     """
-    >>> for line in p21():
-    ...     print(line)
-    ...
-    [[Category:United Kingdom| ]]
-    ...
-    [[Category:Western European countries]]
+    >>> first_elem, last_elem = double_ends(p21())
+    >>> first_elem
+    '[[Category:United Kingdom| ]]'
+    >>> last_elem
+    '[[Category:Western European countries]]'
     """
     for line in p20():
         if line.strip().startswith("[[Category"):
@@ -65,17 +94,15 @@ def p21():
 
 def p22():
     """
-    >>> for line in p22():
-    ...     print(line)
-    ...
-    United Kingdom|
-    ...
-    Western European countries
+    >>> first_elem, last_elem = double_ends(p22())
+    >>> first_elem
+    'United Kingdom|'
+    >>> last_elem
+    'Western European countries'
     """
     pat = re.compile(r"\[\[Category:(.+)\]\]")
     for line in p21():
         yield re.sub(pat, r"\1", line).strip()
-
 
 
 def p23():
@@ -92,17 +119,17 @@ def p23():
 
 def p24():
     """
-    >>> for media_file in p24():
-    ...     print(media_file)
-    ...
-    Royal Coat of Arms of the United Kingdom.svg
-    ...
-    Britannia-Statue.jpg
+    >>> first_elem, last_elem = double_ends(p24())
+    >>> first_elem
+    'Royal Coat of Arms of the United Kingdom.svg'
+    >>> last_elem
+    'Britannia-Statue.jpg'
     """
     pat = re.compile(r"\[\[File:(.*?)\|")
     for line in p20():
         for matched in pat.finditer(line):
             yield matched.group(1)
+
 
 class Block:
     def __init__(self, name: str, lines: list[str], block_type: str):
@@ -112,6 +139,9 @@ class Block:
 
     def __str__(self):
         return str(self.to_dict())
+
+    def __repr__(self):
+        return str(self)
 
     def to_dict(self) -> dict[str, str]:
         return {
@@ -152,48 +182,91 @@ class Block:
                 block_pos_end = line.find(block_end)
                 collected.append(line[:block_pos_end])
                 yield Block(name, collected, block_type)
-                collected.clear()
+                collected = []
                 is_selected = False
             else:
                 if is_selected and line:
                     collected.append(line)
 
 
-def p25() -> dict[str, str]:
+def p25() -> dict[str, str | Block]:
     """
     >>> res = p25()
     >>> res.get('common_name', None)
     'United Kingdom'
     """
     text = "\n".join(p20(True))
-    paretheses = "{{,}}"
+    parentheses = "{{,}}"
     auxilary_pattern = re.compile(r".*Infobox.*")
     pat_fields = re.compile(r"\|(.*?) = (.*)")
-    res: dict[str, str] = {}
+    res: dict[str, str | Block] = {}
 
-    for line in select_inside_parenthese(text, paretheses, auxilary_pattern):
-        # if fields := pat_fields.search(line):
-        #     print(f"{fields=}")
-        #     key = fields.group(1).strip()
-        #     val = fields.group(2).strip()
-        #     res[key] = val
-        print(f"{line=}")
+    for line in select_inside_parenthese(text, parentheses, auxilary_pattern):
+        if fields := pat_fields.search(line):
+            key = fields.group(1).strip()
+            val = fields.group(2).strip()
+            res[key] = val
+
+    for block in Block.from_stream(
+        select_inside_parenthese(text, parentheses, auxilary_pattern)
+    ):
+        key = block.name
+        res[key] = block
 
     return res
 
 
 def p26():
     """
-    >>> p26()
+    >>> for k, v in p26().items():
+    ...     if isinstance(v, str):
+    ...         assert "''" not in v
+    ...
     """
-    res: dict[str, str] = {}
     pat = re.compile(r"(\'+)(.*?)(\'+)")
-    res: dict[str, str] = {}
+    res: dict[str, str | Block] = {}
     for key, val in p25().items():
-        val_new = pat.sub(lambda x: x.group(2), val)
-        if val != val_new:
-            print(val_new)
-        res[key] = val_new
+        if isinstance(val, str):
+            val_new = pat.sub(lambda x: x.group(2), val)
+            if val != val_new:
+                res[key] = val_new
+            else:
+                res[key] = val
+        if isinstance(val, Block):
+            if len(val.content):
+                for i, line_val in enumerate(val.content):
+                    line_val_new = pat.sub(lambda x: x.group(2), line_val)
+                    if line_val != line_val_new:
+                        val.content[i] = line_val_new
+            res[key] = val
+
+    return res
+
+
+def p27():
+    """
+    >>> for key, val in p27().items():
+    ...     
+    """
+    pat = re.compile(r"\[\[([^\|]*)\|?(.*)\]\]")
+
+    def is_internal_link(val: str) -> Optional[Match[str]]:
+        return pat.search(val)
+
+    def remove_internal_link(matched: Match[str]) -> str:
+        link, _ = matched.groups()
+        return link
+
+    res: dict[str, str | Block] = {}
+    for key, val in p26().items():
+        if isinstance(val, str):
+            if matched := is_internal_link(val):
+                val_new = remove_internal_link(matched)
+                res[key] = val_new
+            else:
+                res[key] = val
+        else:
+            res[key] = val
     return res
 
 
