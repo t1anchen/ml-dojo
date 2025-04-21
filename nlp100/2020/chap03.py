@@ -244,10 +244,6 @@ def p26():
 
 
 def p27():
-    """
-    >>> for key, val in p27().items():
-    ...     
-    """
     pat = re.compile(r"\[\[([^\|]*)\|?(.*)\]\]")
 
     def is_internal_link(val: str) -> Optional[Match[str]]:
