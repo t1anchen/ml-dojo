@@ -1,0 +1,16 @@
+[project]
+name = "opensource-ai-cookbook"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mlflow-skinny>=2.22.0",
+    "ray[serve]>=2.45.0",
+    "torch>=2.7.0",
+    "transformers>=4.51.3",
+]
+
+[[tool.uv.index]]
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+default = true
