@@ -1,3 +1,81 @@
 \input manmac
+
+\noindent Chapter 1
+\vskip\baselineskip\hrule\vskip.5\baselineskip
 \ansno1.1:
  A \TeX nician (underpaid); sometimes also called a \TeX acker.
+\vskip\baselineskip\hrule\vskip.5\baselineskip
+\vfill
+\eject
+
+
+\noindent Chapter 2
+
+\vskip\baselineskip\hrule\vskip.5\baselineskip
+%% [2025-05-06T18:14:46+08:00]
+``I understand''
+
+%% [2025-05-06T18:12:00+08:00] Do not write comment inside the block
+%% between `\begintt' and `\endtt' because the anything between
+%% `\begintt' and `\endtt' will be eventually printed out in output
+%% pdf.
+
+%% [2025-05-06T18:16:22+08:00] `\]' represents "visible spacebar" in
+%% normal/display mode
+Visible spacebar: ``I\]understand.''
+
+%% [2025-05-06T18:13:44+08:00] `|]' represents "visible spacebar" in
+%% verbatim mode
+\begintt
+Verbatim spacebar: ``I|]understand.''
+\endtt
+
+\begindisplay
+|-| & hyphen (-)\cr
+|--| & en-dash (--)\cr
+|---| & em-dash (---)\cr
+|$-$| & minus sign $-$\cr
+\enddisplay
+\hrule
+
+\ansno2.1: Alice said, ``I always use an en-dash instead of a hyphen
+when specifying page numbers like `480--491' in a bibliography.''
+
+
+\ansno2.2: Four hyphens `|----|' becomes one em-dash and one hyphen
+`----'
+
+\ansno2.3: fluff
+
+\vskip\baselineskip\hrule\vskip.5\baselineskip
+Summary: ligatures, kerning
+
+
+alternative input methods for left quotes, right quotes
+\begindisplay
+{\tt |\lq\lq\]I\]understand.\rq\rq|} $\Rightarrow$ \lq\lq\]I\]understand.\rq\rq
+\enddisplay
+\hrule
+
+
+\ansno2.4: ``\thinspace` and `\thinspace``
+
+
+\ansno2.5: Following Occam's Razor Principle, introducing extra
+complexity on typewriting annotations might not be a wise move because
+it increases extra maintenance cost in minds and memory. Besides,
+introducing dollar sign might cause confusions between {\sl Math mode}
+and {\sl Text mode} that it may deteriorate maintenability of code.
+
+\vfill
+\eject
+
+
+\noindent Chapter 3.
+\vskip\baselineskip\hrule\vskip.5\baselineskip
+
+\vfill
+\eject
+
+
+\end
