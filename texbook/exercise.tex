@@ -93,6 +93,29 @@ Summary: control sequence, control symbol
 
 \vskip.5\baselineskip\hrule\vskip.5\baselineskip
 
+note: \TeX\ ignores spaces after control worlds
+
+summary: apprimately 300 of 900 control sequence in \TeX\ are {\sl
+primitive}
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\ansno3.3: |\|\] is primitive, while |\|\<return> is represented as |^^M|
+
+\ansno3.4:
+([2025-05-09T00:11:26+08:00] after asking Perplexity.AI about how to
+understand Knuth's answer, it makes sense now)
+
+For length~2 case, the first position is always occupied by `|\|', the
+remaining position is for a single ASCII character, which is 256
+different variants (in the problem description, it said `including
+escape character').
+
+For length~3, it might be strictly limited to alphabet characters
+(i.e. |[A-Za-z]| if represented in Regex). The first position is
+contantly as `|\|', and each of the remaining positions has 52
+variants, which is $52^2$ possible control sequences.
+
 \vfill
 \eject
 
