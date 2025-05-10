@@ -130,6 +130,30 @@ variants, which is $52^2$ possible control sequences.
 |\tt| & {\tt Typewriter}\cr
 |\bf| & {\bf Bold}\cr
 \enddisplay
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
 
+\ansno4.1:
+`Ulrich Dieter, {\sl Journal f\"ur die reine und angewandte
+Mathematik} {\bf 201} (1959), 37--70.'
+
+\ansno4.2:
+{\it Explain how to typeset a\/ {\rm roman} word in the midst of an
+italicized sentence.}
+
+\ansno4.3:
+|\def\ic#1{\setbox0=\hbox{#1\/}\dimen0=\wd0|\parbreak
+|\setbox0=\hbox{#1}\advance\dimen0 by -\wd0 }|.
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\tenrm smaller \ninerm and smaller
+\eightrm and smaller \sevenrm and smaller
+\sixrm and smaller \fiverm and smaller \tenrm
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\ansno4.4:
+The numeric ones would be possibly interpreted as `|\1|' and `0point'
+instead of the entire control sequence.
 
 \end
