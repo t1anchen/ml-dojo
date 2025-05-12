@@ -161,4 +161,98 @@ Quoted from official answer: ``Say |\def\sl{\it}| at the beginning,
 and delete other definitions of\/ |\sl| that might be present in your
 format file (e.g., there might be one inside a |\tenpoint| macro).''
 
+%% \vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+%% [2025-05-12T09:43:23+08:00] If it's ttf/otf font, it is required to
+%% be preprocessed by mktexmf first, otherwise an error will be thrown
+%% out
+%%
+%%     kpathsea: Running mktextfm Cambria
+%%
+%%     The command name is $TEXLIVE_HOME\2024\bin\windows\mktextfm
+%%
+%%     kpathsea: Running mktexmf Cambria.mf
+%%
+%%     The command name is $TEXLIVE_HOME\2024\bin\windows\mktexmf
+%%     name = Cambria, rootname = Cambria, pointsize =
+%%     mktexmf: empty or non-existent rootfile!
+%%     Cannot find Cambria.mf.
+%%     kpathsea: Appending font creation commands to build/missfont.log.
+%%
+%% ----
+%% \font\ninerm=Cambria at 10pt
+
+%% \vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\ansno4.6:
+|\font\tenrm=cmr10 at 5pt|\parbreak
+|\font\tenrm=cmr10 scaled 500|
+
+Note: In the official answer, it uses `|\squinttenrm|'
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\font\msb=msbm10 at 10pt
+\def\ldots{\mathinner{\ldotp\ldotp\ldotp}}
+
+Summary: magnification ratio factor, $1.2^n, n \in $\thinspace {\msb N},
+|\magstep0|, |\magstep1|, $\ldots$, |\magstep5|
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\vfill
+\eject
+
+
+\noindent Chapter 5.
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+Summary: Use `|{|', `|}|' for grouping
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\ansno5.1:
+Use grouping: `|shelf{f}ul|'\ $\rightarrow$\ `shelf{f}ul' rather than `shelfful'\parbreak
+
+Official answer: |{shelf}ful| or |shelf{}ful|, etc.; or even
+|shelf\/ful|, which yields a shelf\/ful instead of a
+shelf{\kern0pt}ful.
+
+\ansno5.2:
+Use grouping: `|{\]}{\]}{\]}|' $\rightarrow$ `{\]}{\]}{\]}'\parbreak
+
+Official answer: `\]|{|\]|}|\]' or `\]|{}|\]|{}|\]', etc. Plain \TeX\
+also has a ^|\space| macro, so you can type |\space\space\space|.  \
+(These aren't strictly equivalent to `|\|\]|\|\]|\|\]', since they
+adjust the spaces by the current ``^{space factor},'' as explained
+later.)
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+Summary: |\centerline|, grouping, scope, nested
+
+Example:
+\begindisplay
+\centerline{This information should be {\it centered}.}
+\enddisplay
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\ansno5.3:
+First case: same\parbreak
+second case: Only `S' centred but rest would be automatically arranged.
+
+\ansno5.4:
+The line will be centred and `centered' will be italic.
+
+\ansno5.5:
+\def\ital#1{{\it #1\/}}\parbreak
+|\def\ital#1{{\it #1\/}}|
+
+|\ital{hello} world| $\rightarrow$ \ital{hello} world
+
+\item - Pros: scoped, more legible
+\item - Cons: learning cost
+
 \end
