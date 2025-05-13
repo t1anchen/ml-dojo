@@ -1,3 +1,4 @@
+%% \tracingall
 \input manmac
 
 \noindent Chapter 1
@@ -223,9 +224,9 @@ shelf{\kern0pt}ful.
 Use grouping: `|{\]}{\]}{\]}|' $\rightarrow$ `{\]}{\]}{\]}'\parbreak
 
 Official answer: `\]|{|\]|}|\]' or `\]|{}|\]|{}|\]', etc. Plain \TeX\
-also has a ^|\space| macro, so you can type |\space\space\space|.  \
+also has a |\space| macro, so you can type |\space\space\space|.  \
 (These aren't strictly equivalent to `|\|\]|\|\]|\|\]', since they
-adjust the spaces by the current ``^{space factor},'' as explained
+adjust the spaces by the current ``{space factor},'' as explained
 later.)
 
 \vskip.5\baselineskip\hrule\vskip.5\baselineskip
@@ -254,5 +255,54 @@ The line will be centred and `centered' will be italic.
 
 \item - Pros: scoped, more legible
 \item - Cons: learning cost
+
+%% \global\advance\count0 by 1
+
+\ansno5.6:
+Official answer: |{1 {2 3 4 5} 4 6} 4|
+
+%% \def\c#1{\count1=#1}
+%% \def\g{\global\count1=}
+%% \def\s{\showthe\count1}
+
+%% \hbox{%
+%%   \c1\s
+%%   \g2
+%%   {%
+%%     \s
+%%     \c3\s
+%%     \g4\s
+%%     \c5\s
+%%   }%
+%%   \s
+%%   \c6\s
+%% }%
+%% \s
+
+%% ===================================================================
+%% [2025-05-13T19:40:35+08:00] Cannot reproduce the result neither in
+%% TeX nor in pdfTeX. It keeps alarming errors like
+%%
+%%     <to be read again>
+%%                        \global
+%%     \g ->\global
+%%                  \count 1=
+%%     l.268   \g
+%%               2
+
+%% it does not work even braces added/removed or marco parameter
+%% added/removed. It seems like the behaviorial differences between
+%% different versions of TeX.
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\vfill
+\eject
+
+\noindent Chapter 6.
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+
 
 \end
