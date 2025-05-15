@@ -413,5 +413,34 @@ at |#1|. Therefore
 \TeX\ doesn't interpret control sequences when it scans an argument.''
 
 \vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\vfill
+\eject
+
+
+\noindent Chapter 7.
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+{\bf Summary}:
+\item\bull Reserved $10$ characters (must be escaped with `|\|'): `|\|', `|{|', `|}|', `|$|', `|&|', `|#|', `|^|', `|_|', `|%|', `|~|'
+\item\bull example: `|$\{a \backslash b\}$|' $\rightarrow$ `$\{a \backslash b\}$'
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\ansno7.1:
+The `|&|', `|$|' and `|%|' must be escaped.
+
+\ansno7.2:
+Official answer: ``Reverse slashes (backslashes) are fairly uncommon
+in formulas or text, and |\\| is very easy to type; it was therefore
+felt best not to reserve |\\| for such limited use. Typists can define
+|\\| to be whatever they want (including |\backslash|).''
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+{\bf Summary:} \cstok{boxed token}
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+
 
 \bye
