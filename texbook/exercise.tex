@@ -449,4 +449,55 @@ sequences in most cases (e.g., when you say `|\let||\x=~|' or
 in the token list of\/ |\uppercase| or |\lowercase|, and when
 unexpanded after |\if| or |\ifcat|.''
 
+\ansno7.4:
+Official answer: ``It ends with either |>| or |}| or any character of
+category 2; then the effects of all |\catcode| definitions within the
+group are wiped out, except those that were |\global|.''
+
+\ansno7.5:
+Official answer: ``If you type `|\message{\string~}|' and `|\message{\string\~}|', \TeX\
+responds with `|~|' and `|\~|', respectively. ^^|\message|
+To get |\|$_{12}$ from |\string| you therefore need to make backslash an
+active character. One way to do this is
+\begintt
+{\catcode`/=0 \catcode`\\=13 /message{/string\}}
+\endtt
+(The ``^{null control sequence}'' that you get when there are no
+tokens between |\csname| and |\endcsname| is not a solution to this exercise,
+because |\string| converts it to `|\csname\endcsname|'. There is, however,
+another solution: If \TeX's |\escapechar| parameter---which will be
+explained in one of the next dangerous bends---is negative or greater
+than~255, then `|\string\\|' works.)''
+
+\ansno7.6:
+|\|$_{12}$ |a|$_{12}$ |\|$_{12}$ \]$_{10}$ |b|$_{12}$.
+
+\ansno7.7:
+Official answer: ``|\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}|%
+\hfil\break Note that a control sequence like this must be used with care;
+it cannot be included in {conditional} text, because the |\ifx| will not
+be seen when |\ifundefined| isn't expanded.''
+
+\ansno7.8:
+|\uppercase{a\lowercase{bC}}| $\rightarrow$ `\uppercase{a\lowercase{bC}}'
+
+\ansno7.9:
+`\copyright\ \uppercase\expandafter{\romannumeral\year}' $\rightarrow$ `|\copyright\ \uppercase\expandafter{\romannumeral\year}|'
+
+\ansno7.10:
+Official answer:
+\begintt
+\def\gobble#1{} % remove one token
+\def\appendroman#1#2#3{\expandafter\def\expandafter#1\expandafter
+  {\csname\expandafter\gobble\string#2\romannumeral#3\endcsname}}
+\endtt
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\vfill
+\eject
+
+
+\noindent Chapter 8.
+
 \bye
