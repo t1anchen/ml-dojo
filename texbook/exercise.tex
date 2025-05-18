@@ -500,4 +500,22 @@ Official answer:
 
 \noindent Chapter 8.
 
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+{\bf Summary}
+`|\char98 u\char98\char98 le|' $\rightarrow$ `\char98 u\char98\char98 le'
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\ansno8.1:
+
+|%| in \TeX can be interpreted as reserved keyword of comment
+|%| character.
+
+Official answer: ``The |%| would be treated as a comment character,
+because its category code is~14; thus, no |%| token or |}| token would
+get through to the gullet of \TeX\ where numbers are treated. When a
+character is of category 0, 5, 9, 14, or~15, the extra |\| must be
+used; and the |\| doesn't hurt, so you can always use it to be safe.''
+
 \bye
