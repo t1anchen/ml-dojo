@@ -504,6 +504,12 @@ Official answer:
 
 {\bf Summary}
 `|\char98 u\char98\char98 le|' $\rightarrow$ `\char98 u\char98\char98 le'
+\halign{# && $\rightarrow$ #\cr
+`|\char98|' & `\char98'\cr
+`|\char'142|' & `\char'142'\cr
+`|\char"62|' & `\char"62'\cr
+}
+
 
 \vskip.5\baselineskip\hrule\vskip.5\baselineskip
 
@@ -517,5 +523,19 @@ because its category code is~14; thus, no |%| token or |}| token would
 get through to the gullet of \TeX\ where numbers are treated. When a
 character is of category 0, 5, 9, 14, or~15, the extra |\| must be
 used; and the |\| doesn't hurt, so you can always use it to be safe.''
+
+\ansno8.2:
+\halign{#\ &\ #\hfil\cr
+(a)&A caracter of category~5 can be converted into `\]'$_{10}$ or
+a \cstok{par} token, \cr
+&while a character of category~14 never produces a token.\cr
+(b)&Different category numbers\cr
+(c)&Same as (b)\cr
+(d)&No\cr
+(e)&Yes\cr
+(f)&No\cr
+}
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
 
 \bye
