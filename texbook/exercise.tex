@@ -675,5 +675,48 @@ sp&scaled point ($\rm65536\,sp=1\,pt$)\cr}$$
 254 centimeters $=$ 100 in $=$ 7227 pt
 
 \vskip.5\baselineskip\hrule\vskip.5\baselineskip
+Summary: Parsing syntax
+
+\halign{#&&\quad #\hfil\cr
+Syntax 1:&\<optional sign>\<number>\<unit of measure>\cr
+Syntax 2:&\<optional sign>\<digit string>|.|\<digit string>\<unit of measure>\cr
+}
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+
+\ansno10.2:
+\halign{#\ &\hfil#&\thinspace #\hfil\ &\ #\cr
+1 & -.013837  & in & (-0.3514598 mm)\cr
+2 & 0.        & mm & (0.0 mm)\cr
+3 & +42.1     & dd & (15.832338 mm)\cr
+4 & 3         & in & (76.2 mm)\cr
+5 & 29        & pc & (122.308012 mm)\cr
+6 & 123456789 & sp & (662.080365 mm)\cr
+}
+
+\ansno10.3:
+\halign{\hfil#\ &\ #\hfil\cr
+|'.77pt| & Not legitimate \cr
+|"Ccc| & $\rightarrow 12$ cc\cr
+|-,sp| & $\rightarrow 0.0$ sp\cr
+}
+
+\ansno10.4:
+Official answer: ``
+% tc: tianchen, tpf: ten point four, bs: backslash
+\begintt
+\def\tick#1{\vrule height 0pt depth #1pt}
+\def\tctpfbs{\hbox to 1cm{\hfil\tick4\hfil\tick8}}
+\vbox{\hrule\hbox{\tick8\tctpfbs\tctpfbs\tctpfbs\tctpfbs
+\tctpfbs\tctpfbs\tctpfbs\tctpfbs\tctpfbs\tctpfbs}}
+\endtt''
+
+$$\vbox{
+\def\tick#1{\vrule height 0pt depth #1pt}
+\def\tctpfbs{\hbox to 1cm{\hfil\tick4\hfil\tick8}}
+\vbox{\hrule\hbox{\tick8\tctpfbs\tctpfbs\tctpfbs\tctpfbs
+\tctpfbs\tctpfbs\tctpfbs\tctpfbs\tctpfbs\tctpfbs}}
+}$$
+
+\vskip.5\baselineskip\hrule\vskip.5\baselineskip
 
 \bye
