@@ -1,18 +1,22 @@
 %% \tracingall
 \input manmac
+\hsize=6.5in
+\vsize=8.9in
+\def\myhr{\vskip.5\baselineskip\hrule\vskip.5\baselineskip}
 
+
 \noindent Chapter 1
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 \ansno1.1:
  A \TeX nician (underpaid); sometimes also called a \TeX acker.
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 \vfill
 \eject
 
 
 \noindent Chapter 2
 
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 %% [2025-05-06T18:14:46+08:00]
 ``I understand''
 
@@ -47,10 +51,8 @@ when specifying page numbers like `480--491' in a bibliography.''
 `----'
 
 \ansno2.3: fluff
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
-{\bf Summary}:
+\myhr
+\noindent{\bf Summary}:
 \item\bull ligatures
 \item\bull kerning
 \item\bull alternative input methods for left quotes, right quotes
@@ -69,21 +71,20 @@ complexity on typewriting annotations might not be a wise move because
 it increases extra maintenance cost in minds and memory. Besides,
 introducing dollar sign might cause confusions between {\sl Math mode}
 and {\sl Text mode} that it may deteriorate maintenability of code.
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \vfill
 \eject
 
 
 \noindent Chapter 3.
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 
 Note: |ESC| key $\neq$ escape character
 
-{\bf Summary}: control sequence, control symbol
+\noindent{\bf Summary}:
+\item\bull control sequence, control symbol
 
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 \ansno3.1:
 `|\I'm \exercise3.1\\!|' control sequences are `|\I|', `|\exercise|',
  and `|\\|'
@@ -93,16 +94,12 @@ Note: |ESC| key $\neq$ escape character
 `math\'ematique' & $\rightarrow$\quad |`math\'ematique'|\cr
 `centim\`etre' & $\rightarrow$\quad |`centim\`etre'|\cr
 \enddisplay
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 note: \TeX\ ignores spaces after control worlds
 
-summary: apprimately 300 of 900 control sequence in \TeX\ are {\sl
-primitive}
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\noindent{\bf Summary}:
+\item\bull apprimately 300 of 900 control sequence in \TeX\ are {\sl primitive}
+\myhr
 \ansno3.3: |\|\] is primitive, while |\|\<return> is represented as |^^M|
 
 \ansno3.4:
@@ -118,14 +115,14 @@ For length~3, it might be strictly limited to alphabet characters
 (i.e. |[A-Za-z]| if represented in Regex). The first position is
 contantly as `|\|', and each of the remaining positions has 52
 variants, which is $52^2$ possible control sequences.
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 
 \vfill
 \eject
 
 
 \noindent Chapter 4.
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 \begindisplay
 |\rm| & {\rm Roman}\cr
 |\sl| & {\sl Slanted}\cr
@@ -133,7 +130,7 @@ variants, which is $52^2$ possible control sequences.
 |\tt| & {\tt Typewriter}\cr
 |\bf| & {\bf Bold}\cr
 \enddisplay
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 
 \ansno4.1:
 `Ulrich Dieter, {\sl Journal f\"ur die reine und angewandte
@@ -146,15 +143,11 @@ italicized sentence.}
 \ansno4.3:
 |\def\ic#1{\setbox0=\hbox{#1\/}\dimen0=\wd0|\parbreak
 |\setbox0=\hbox{#1}\advance\dimen0 by -\wd0 }|.
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \tenrm smaller \ninerm and smaller
 \eightrm and smaller \sevenrm and smaller
 \sixrm and smaller \fiverm and smaller \tenrm
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \ansno4.4:
 The numeric ones would be possibly interpreted as `|\1|' and `0point'
 instead of the entire control sequence.
@@ -164,7 +157,7 @@ Quoted from official answer: ``Say |\def\sl{\it}| at the beginning,
 and delete other definitions of\/ |\sl| that might be present in your
 format file (e.g., there might be one inside a |\tenpoint| macro).''
 
-%% \vskip.5\baselineskip\hrule\vskip.5\baselineskip
+%% \myhr
 
 %% [2025-05-12T09:43:23+08:00] If it's ttf/otf font, it is required to
 %% be preprocessed by mktexmf first, otherwise an error will be thrown
@@ -185,38 +178,31 @@ format file (e.g., there might be one inside a |\tenpoint| macro).''
 %% ----
 %% \font\ninerm=Cambria at 10pt
 
-%% \vskip.5\baselineskip\hrule\vskip.5\baselineskip
+%% \myhr
 
 \ansno4.6:
 |\font\tenrm=cmr10 at 5pt|\parbreak
 |\font\tenrm=cmr10 scaled 500|
 
 Note: In the official answer, it uses `|\squinttenrm|'
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \font\msb=msbm10 at 10pt
 \def\ldots{\mathinner{\ldotp\ldotp\ldotp}}
 
-{\bf Summary}:
+\noindent{\bf Summary}:
 \item\bull magnification ratio factor
 \item\bull $1.2^n, n \in $\thinspace {\msb N}
 \item\bull |\magstep0|, |\magstep1|, $\ldots$, |\magstep5|
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \vfill
 \eject
 
 
 \noindent Chapter 5.
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
-{\bf Summary}: Use `|{|', `|}|' for grouping
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
+\noindent{\bf Summary}:
+\item\bull Use `|{|', `|}|' for grouping
+\myhr
 \ansno5.1:
 Use grouping: `|shelf{f}ul|'\ $\rightarrow$\ `shelf{f}ul' rather than `shelfful'\parbreak
 
@@ -232,10 +218,9 @@ also has a |\space| macro, so you can type |\space\space\space|.  \
 (These aren't strictly equivalent to `|\|\]|\|\]|\|\]', since they
 adjust the spaces by the current ``{space factor},'' as explained
 later.)
+\myhr
+\noindent{\bf Summary}:
 
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
-{\bf Summary}:
 \item\bull |\centerline|
 \item\bull grouping
 \item\bull scope
@@ -245,9 +230,7 @@ Example:
 \begindisplay
 \centerline{This information should be {\it centered}.}
 \enddisplay
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \ansno5.3:
 First case: same\parbreak
 second case: Only `S' centred but rest would be automatically arranged.
@@ -301,16 +284,12 @@ Official answer: |{1 {2 3 4 5} 4 6} 4|
 %% it does not work even braces added/removed or marco parameter
 %% added/removed. It seems like the behaviorial differences between
 %% different versions of TeX.
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \vfill
 \eject
 
 \noindent Chapter 6.
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 $$\halign{\hbox to\parindent{\hfil\sevenrm#\ \ }&#\hfil\cr
 1&|\hrule|\cr
 2&|\vskip 1in|\cr
@@ -351,17 +330,13 @@ typesetting beautiful documents.
 \vskip 1in
 \hrule
 \vfill\eject
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
-{\bf Summary}:
+\myhr
+\noindent{\bf Summary}:
 
 \item\bull `|\c|' (cedilla)
 \item\bull `|~|' (ties, treat as normal space but not
 to break between lines, e.g. names)
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \ansno6.1:
 Official answer: ``Laziness and/or obstinacy''
 
@@ -397,7 +372,7 @@ Official answer: ``|\def\extraspace{\nobreak \hskip 0pt plus
 (If you try this with the story at 2-inch and 1.5-inch sizes, you will
 notice a substantial improvement. The |\unskip| allows people to leave
 a space before typing |\dash|.  \TeX\ will try to hyphenate before
-|\dash|, but not before `|---|'; cf.\ Appendix~H\null. The ^|\relax|
+|\dash|, but not before `|---|'; cf.\ Appendix~H\null. The |\relax|
 at the end of |\extraspace| is a precaution in case the next word is
 `|minus|'.)''
 
@@ -412,20 +387,18 @@ define a control sequence like |\ERROR| before telling \TeX\ to look
 at |#1|. Therefore
 \TeX\ doesn't interpret control sequences when it scans an argument.''
 
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 \vfill
 \eject
 
 
 \noindent Chapter 7.
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 
-{\bf Summary}:
+\noindent{\bf Summary}:
 \item\bull Reserved $10$ characters (must be escaped with `|\|'): `|\|', `|{|', `|}|', `|$|', `|&|', `|#|', `|^|', `|_|', `|%|', `|~|'
 \item\bull example: `|$\{a \backslash b\}$|' $\rightarrow$ `$\{a \backslash b\}$'
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \ansno7.1:
 The `|&|', `|$|' and `|%|' must be escaped.
 
@@ -434,13 +407,10 @@ Official answer: ``Reverse slashes (backslashes) are fairly uncommon
 in formulas or text, and |\\| is very easy to type; it was therefore
 felt best not to reserve |\\| for such limited use. Typists can define
 |\\| to be whatever they want (including |\backslash|).''
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
-{\bf Summary:} \cstok{boxed token}
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
+\noindent{\bf Summary}:
+\item\bull \cstok{boxed token}
+\myhr
 \ansno7.3:
 Official answer: ``1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13. {Active
 characters} (type 13) are somewhat special; they behave like control
@@ -456,13 +426,13 @@ group are wiped out, except those that were |\global|.''
 
 \ansno7.5:
 Official answer: ``If you type `|\message{\string~}|' and `|\message{\string\~}|', \TeX\
-responds with `|~|' and `|\~|', respectively. ^^|\message|
+responds with `|~|' and `|\~|', respectively. |\message|
 To get |\|$_{12}$ from |\string| you therefore need to make backslash an
 active character. One way to do this is
 \begintt
 {\catcode`/=0 \catcode`\\=13 /message{/string\}}
 \endtt
-(The ``^{null control sequence}'' that you get when there are no
+(The ``{null control sequence}'' that you get when there are no
 tokens between |\csname| and |\endcsname| is not a solution to this exercise,
 because |\string| converts it to `|\csname\endcsname|'. There is, however,
 another solution: If \TeX's |\escapechar| parameter---which will be
@@ -491,28 +461,24 @@ Official answer:
 \def\appendroman#1#2#3{\expandafter\def\expandafter#1\expandafter
   {\csname\expandafter\gobble\string#2\romannumeral#3\endcsname}}
 \endtt
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \vfill
 \eject
 
 
 \noindent Chapter 8.
+\myhr
+\noindent{\bf Summary}:
 
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\item\bull `|\char98 u\char98\char98 le|' $\rightarrow$ `\char98 u\char98\char98 le'
 
-{\bf Summary}
-`|\char98 u\char98\char98 le|' $\rightarrow$ `\char98 u\char98\char98 le'
-\halign{# && $\rightarrow$ #\cr
+\halign{\indent\hfil# && $\rightarrow$ #\cr
 `|\char98|' & `\char98'\cr
 `|\char'142|' & `\char'142'\cr
 `|\char"62|' & `\char"62'\cr
 }
 
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \ansno8.1:
 
 |%| in \TeX can be interpreted as reserved keyword of comment
@@ -525,7 +491,7 @@ character is of category 0, 5, 9, 14, or~15, the extra |\| must be
 used; and the |\| doesn't hurt, so you can always use it to be safe.''
 
 \ansno8.2:
-\halign{#\ &\ #\hfil\cr
+\halign{\indent\hfil#\ &\ #\hfil\cr
 (a)&A caracter of category~5 can be converted into `\]'$_{10}$ or
 a \cstok{par} token, \cr
 &while a character of category~14 never produces a token.\cr
@@ -535,26 +501,23 @@ a \cstok{par} token, \cr
 (e)&Yes\cr
 (f)&No\cr
 }
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \ansno8.3: TBD
 \ansno8.4: TBD
 \ansno8.5: TBD
 \ansno8.6: TBD
 \ansno8.7: TBD
 
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 \vfill
 \eject
 
 
 \noindent Chapter 9.
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
 
-Summary:
-
-upper accent
+\noindent{\bf Summary}:
+\item\bull upper accent
 
 $$\halign{\indent\hbox to 50pt{#\hfil}&\hbox to 35pt{#\hfil}&#\hfil\cr
 \it\negthinspace Type&\it to get\cr
@@ -591,9 +554,7 @@ $$\halign{\indent\hbox to 50pt{#\hfil}&\hbox to 35pt{#\hfil}&#\hfil\cr
 |\o,\O|&\o,\thinspace\O&(Scandinavian O-with-slash)\cr
 |\l,\L|&\l,\thinspace\L&(Polish suppressed-L)\cr
 |\ss|&\ss&(German ``es-zet'' or sharp S)\cr}$$
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \ansno9.1: `|na\"\i ve|' $\rightarrow$ `na\"\i ve'
 
 \ansno9.2:
@@ -612,7 +573,7 @@ imperialis petropolitan\ae\/} became {\sl Akademi\t\i a Nauk SSSR,
 Doklady}'
 
 \ansno9.5:
-\halign{#$\rightarrow$&\ #\hfil\cr
+\halign{\indent\hfil#$\rightarrow$&\ #\hfil\cr
 `|Ernesto {Ces\`aro}|'                           & `Ernesto {Ces\`aro}'\cr
 `|P\'al {Erd\H os}|'                             & `P\'al {Erd\H os}'\cr
 `|\O ystein {Ore}|'                              & `\O ystein {Ore}'\cr
@@ -623,8 +584,9 @@ Doklady}'
 
 \ansno9.6:
 `|{\tt P\'al Erd{\bf\H{\tt o}}s}|' $\rightarrow$ `{\tt P\'al Erd{\bf\H{\tt o}}s}'
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\myhr
+\noindent{\bf Summary}:
+\item\bull Special signs
 
 $$\halign{\indent#\hfil\ &\hfil#\hfil&#\hfil\cr
 \it\negthinspace Type&\it to get\cr
@@ -633,9 +595,7 @@ $$\halign{\indent#\hfil\ &\hfil#\hfil&#\hfil\cr
 |\ddag|&\ddag&(double dagger or diesis)\cr
 |\S|&\S&(section number sign)\cr
 |\P|&\P&(paragraph sign or pilcrow)\cr}$$
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \ansno9.7:
 `|{\it Europe on {\sl\$}15.00 a day\/}|' $\rightarrow$ `{\it Europe on
 {\sl\$}15.00 a day\/}'
@@ -645,18 +605,16 @@ Official answer: ``The extra braces keep font changes local. An
 argument makes the use of\/ |\'| more consistent with the use of other
 accents like |\d|, which are manufactured from other characters
 without using the |\accent| primitive.''
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \vfill
 \eject
 
 
 \noindent Chapter 10.
 
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
-Units:
+\myhr
+\noindent{\bf Summary}
+\item\bull Units
 
 $$\halign{\indent\tt#&\quad#\hfil\cr
 pt&point (baselines in this manual are $12\pt$ apart)\cr
@@ -668,23 +626,20 @@ mm&millimeter ($\rm10\,mm=1\,cm$)\cr
 dd&didot point ($\rm1157\,dd=1238\,pt$)\cr
 cc&cicero ($\rm1\,cc=12\,dd$)\cr
 sp&scaled point ($\rm65536\,sp=1\,pt$)\cr}$$
-
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+\myhr
 \ansno10.1:
 254 centimeters $=$ 100 in $=$ 7227 pt
+\myhr
+\noindent{\bf Summary}:
+\item\bull Parsing syntax
 
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-Summary: Parsing syntax
-
-\halign{#&&\quad #\hfil\cr
+$$\halign{\indent\hfil#&&\quad #\hfil\cr
 Syntax 1:&\<optional sign>\<number>\<unit of measure>\cr
 Syntax 2:&\<optional sign>\<digit string>|.|\<digit string>\<unit of measure>\cr
-}
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
-
+}$$
+\myhr
 \ansno10.2:
-\halign{#\ &\hfil#&\thinspace #\hfil\ &\ #\cr
+\halign{\indent\hfil#\ &\hfil#&\thinspace #\hfil\ &\ #\cr
 1 & -.013837  & in & (-0.3514598 mm)\cr
 2 & 0.        & mm & (0.0 mm)\cr
 3 & +42.1     & dd & (15.832338 mm)\cr
@@ -694,7 +649,7 @@ Syntax 2:&\<optional sign>\<digit string>|.|\<digit string>\<unit of measure>\cr
 }
 
 \ansno10.3:
-\halign{\hfil#\ &\ #\hfil\cr
+\halign{\indent\hfil#\ &\ #\hfil\cr
 |'.77pt| & Not legitimate \cr
 |"Ccc| & $\rightarrow 12$ cc\cr
 |-,sp| & $\rightarrow 0.0$ sp\cr
@@ -710,13 +665,53 @@ Official answer: ``
 \tctpfbs\tctpfbs\tctpfbs\tctpfbs\tctpfbs\tctpfbs}}
 \endtt''
 
-$$\vbox{
+\indent\vbox{
 \def\tick#1{\vrule height 0pt depth #1pt}
 \def\tctpfbs{\hbox to 1cm{\hfil\tick4\hfil\tick8}}
 \vbox{\hrule\hbox{\tick8\tctpfbs\tctpfbs\tctpfbs\tctpfbs
 \tctpfbs\tctpfbs\tctpfbs\tctpfbs\tctpfbs\tctpfbs}}
-}$$
+}
+\myhr
+\noindent{\bf Summary}:
 
-\vskip.5\baselineskip\hrule\vskip.5\baselineskip
+\halign{\indent\hfil#\ &\ #\hfil\cr
+|\magnification=1200| & Enlarge 1.2 times normal size\cr
+|\magnification=2000| & Double\cr
+}
+\myhr
+\ansno10.5:
 
+\vbox{
+1.2 times\vskip5pt
+\font\enlargedrm=cmr10 scaled\magstep1
+\enlargedrm\input story
+}
+\vbox{
+\vskip5pt 1.44 times\vskip5pt
+\font\enlargedrm=cmr10 scaled\magstep2
+\enlargedrm\input story
+}
+\vbox{
+\vskip5pt 1.728 times\vskip5pt
+\font\enlargedrm=cmr10 scaled\magstep3
+\enlargedrm\input story
+}
+\myhr
+
+\noindent{\bf Summary}:
+\item\bull |\hsize=6.5 true in| represents no-scaled 6.5 inch for text area height
+
+\myhr
+\ansno10.6:
+%% [2025-05-22T17:27:24+08:00] `\magnification' Not work in pdftex
+Official answer: ``Magnification is by a factor of 1.2. Since font |\first| is |cmr10|
+at $12\pt$, it will be |cmr10| at $14.4\pt$ after magnification;
+font |\second| will be |cmr10| at $12\pt$. \ (\TeX\ changes
+`|12truept|' into `|10pt|', and the final output magnifies it back to
+$12\pt$.)''
+\myhr
+
+%% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
+%% \message{The current \string\vsize\space is \the\vsize.}
+%% \message{The current \string\hsize\space is \the\hsize.}
 \bye
