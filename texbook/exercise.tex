@@ -718,7 +718,91 @@ $12\pt$.)''
 \myhr
 \noindent{\bf Summary}:
 \item\bull black box: `\vrule width 4pt height 6pt depth 1.5pt', `\bull'
+
+\vbox{\hbox{Two lines}\hbox{of type.}}
 \myhr
+
+\ansno11.1:
+The `|E|' is inside a box that is inside a box.
+
+\ansno11.2:
+Official answer: ``The idea is to construct a box and to look inside. For example,
+\begintt
+\setbox0=\hbox{\sl g\/} \showbox0
+\endtt
+reveals that |\/| is implemented by placing a kern after the character.
+Further experiment shows that this kern is inserted even when the italic
+correction is zero.''
+
+\ansno11.3:
+Official answer: ``The height, depth, and width of the enclosing box should be just large
+enough to enclose all of the contents, so the result is:
+\begintt
+\hbox(8.98608+0.0)x24.44484
+.\tenrm T
+.\kern 1.66702
+.\hbox(6.83331+0.0)x6.80557, shifted -2.15277
+..\tenrm E
+.\kern 1.25
+.\tenrm X
+\endtt
+(You probably predicted a height of |8.9861|; \TeX's internal calculations are
+in |sp|, not |pt|/100000, so the rounding in the fifth decimal place is not
+readily predictable.)''
+
+\ansno11.4:
+\TeX\ is supposed to be designed for English-language world. For a general,
+symmetrical box design, {\it CSS3 Box Model} might be a fair implementation
+for reference.
+
+\ansno11.5:
+\vbox{
+\def\dolist{\afterassignment\dodolist\let\next= }
+\def\dodolist{\ifx\next\endlist \let\next\relax
+  \else \\\let\next\dolist \fi
+  \next}
+\def\endlist{\endlist}
+\def\hidehrule#1#2{\kern-#1%
+  \hrule height#1 depth#2 \kern-#2 }
+\def\hidevrule#1#2{\kern-#1{\dimen0=#1
+    \advance\dimen0 by#2\vrule width\dimen0}\kern-#2 }
+\def\makeblankbox#1#2{\hbox{\lower\dp0\vbox{\hidehrule{#1}{#2}%
+    \kern-#1 % overlap the rules at the corners
+    \hbox to \wd0{\hidevrule{#1}{#2}%
+      \raise\ht0\vbox to #1{}% set the vrule height
+      \lower\dp0\vtop to #1{}% set the vrule depth
+      \hfil\hidevrule{#2}{#1}}%
+    \kern-#1\hidehrule{#2}{#1}}}}
+\def\maketypebox{\makeblankbox{0pt}{1pt}}
+\def\makelightbox{\makeblankbox{.2pt}{.2pt}}
+\def\\{\if\space\next\ % assume that \next is unexpandable
+ \else \setbox0=\hbox{\next}\maketypebox\fi}
+\def\demobox#1{\setbox0=\hbox{\dolist#1\endlist}%
+  \leavevmode\copy0\kern-\wd0\makelightbox}
+
+
+\noindent|\demobox{Tough exercise.}| $\rightarrow$ \demobox{Tough exercise.}
+}
+
+\ansno11.6:
+\vbox{
+\def\frac#1/#2{\leavevmode\kern.1em
+  \raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+  /\kern-.15em
+  \lower.25ex\hbox{\the\scriptfont0 #2}}
+
+\noindent|\frac1/2| $\rightarrow$ `\frac1/2'
+}
+
+\myhr
+\vfill
+\eject
+
+
+\noindent Chapter 12.
+\mybr
+
+
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
 %% \message{The current \string\vsize\space is \the\vsize.}
