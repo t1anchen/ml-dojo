@@ -800,8 +800,50 @@ for reference.
 
 
 \noindent Chapter 12.
-\mybr
+\myhr
+\noindent{\bf Summary}:
+\item\bull box with glue example
 
+\begindisplay\eightpoint
+\vbox{
+    \hbox{\samplebox{7mm}{8mm}{5\varunit}{width 5}%
+      \sampleglue{9\varunit}{space 9\cr stretch 3\cr shrink 1}%
+      \samplebox{3mm}{2mm}{6\varunit}{width 6}%
+      \sampleglue{9\varunit}{space 9\cr stretch 6\cr shrink 2}%
+      \samplebox{8mm}{3mm}{3\varunit}{width 3}%
+      \sampleglue{12\varunit}{space 12\cr stretch 0\cr shrink 0}%
+      \samplebox{4mm}{7mm}{8\varunit}{width 8}}
+    \kern6pt
+    \arrows{52\varunit}{width 52}}
+\enddisplay
+
+\item\bull glue stretch/shrink arithmetics
+
+In the example above, if the total width is expected to be $58$, then
+\vskip\baselineskip
+\halign{\indent\hfil#\ &\ #\hfil\cr
+1 & Calculate how many units are require to be stretched/shrinked\cr
+& i.e. $58-52=6$\cr
+2 & formula: natural $\pm$ (total actual needed $\div$ total capability $\times$ actual needed)\cr
+& i.e. $9 + (6/9)\times 3 = 11$, $9 + (6/9)\times 6 = 13$, $12 + (6/9)\times 0 = 12$\cr
+& i.e. $5 + 11 + 6 + 13 + 3 + 12 + 8 = 58$\cr
+}
+
+\item\bull setting the glue (once set the glue becomes rigid)
+\item\bull glue cannot shrink more than shrinkability, but can stretch arbitraily far
+
+\myhr
+\ansno12.1:
+\halign{\indent\hfil#\ &\ #\hfil\cr
+Step 1.&$100-52=48$ globs require to be added/stretched\cr
+Step 2.&$9 + (48/9)\times 3 = 9+16$, $9 + (48/9)\times 6 = 9+32$, $9 + (48/9)\times 0 = 12+0$\cr
+}
+
+Since $100$ exceeds the maximal stretchable width, \TeX\ will consider
+as ``infinitely bad''.
+\myhr
+\noindent{\bf Summary}:
+\item\bull glue syntax: |\<glue_control_sequence><dimen> plus<dimen> minus<dimen>|
 
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
