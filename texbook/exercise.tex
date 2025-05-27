@@ -844,8 +844,23 @@ as ``infinitely bad''.
 \myhr
 \noindent{\bf Summary}:
 \item\bull glue syntax: |\<glue_control_sequence><dimen> plus<dimen> minus<dimen>|
+\item\bull |\vfil| vs |\vfill|
+\vskip1em
+\halign{\indent\hfil#\ &\ #\hfil\cr
+|\vfil| & Expand to fill the remaining space\cr
+|\vfill| & effectively prevents |\vfil| from stretching\cr
+|\hfil| & horizontal fill\cr
+|\hfill| & horizontal fill (stronger)\cr
+|\hss| & horizontal stretch or shrink\cr
+|\vss| & vertical stretch or shrink\cr
+|\hfilneg| & cancel |\hfil|\cr
+|\vfilneg| & cancel |\vfil|\cr
+}
+\myhr
 
 
+
+
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
 %% \message{The current \string\vsize\space is \the\vsize.}
 %% \message{The current \string\hsize\space is \the\hsize.}
