@@ -856,9 +856,120 @@ as ``infinitely bad''.
 |\hfilneg| & cancel |\hfil|\cr
 |\vfilneg| & cancel |\vfil|\cr
 }
+\vskip1em
+\item\bull |\hfil| examples
+\vskip\baselineskip
+
+\def\borderedbox#1{
+\vbox{\hrule
+\hbox{\vrule\kern1em\vbox{
+\parindent=0pt
+\vskip1em #1\vskip1em
+}
+\kern1em\vrule}
+\hrule}}
+
+%% [2025-05-28T09:33:22+08:00] it cannot use borderedbox macro below
+%% due to the verbatim content wrapped by `|' would be expanded
+%% automatically in a macro and there is no valid approach to mitigate
+%% this issue.
+
+\vbox{\hrule
+\hbox{\vrule\kern1em\vbox{
+\parindent=0pt
+\vskip1em
+\line{|\line{This text will be flush left\hfil}|}
+\line{This text will be flush left.\hfil}
+\vskip1em
+}
+\kern1em\vrule}
+\hrule}
+\vskip-1pt
+\vbox{
+\hbox{\vrule\kern1em\vbox{
+\parindent=0pt
+\vskip1em
+\line{|\line{\hfil This text will be flush right.}|}
+\line{\hfil This text will be flush right.}
+\vskip1em
+}
+\kern1em\vrule}
+\hrule}
+\vskip-1pt
+\vbox{
+\hbox{\vrule\kern1em\vbox{
+\parindent=0pt
+\vskip1em
+\line{|\line{\hfil This text will be centered.\hfil}|}
+\line{\hfil This text will be centered.\hfil}
+\vskip1em
+}
+\kern1em\vrule}
+\hrule}
+\vskip-1pt
+\vbox{\hrule
+\hbox{\vrule\kern1em\vbox{
+\parindent=0pt
+\vskip1em
+\line{|\line{Some text flush left\hfil and some flush right.}|}
+\line{Some text flush left\hfil and some flush right.}
+\vskip1em
+}
+\kern1em\vrule}
+\hrule}
+\vskip-1pt
+\vbox{
+\hbox{\vrule\kern1em\vbox{
+\parindent=0pt
+\vskip1em
+\line{|\line{Alpha\hfil centered between Alpha and Omega\hfil Omega}|}
+\line{Alpha\hfil centered between Alpha and Omega\hfil Omega}
+\vskip1em
+}
+\kern1em\vrule}
+\hrule}
+\vskip-1pt
+\vbox{
+\hbox{\vrule\kern1em\vbox{
+\parindent=0pt
+\vskip1em
+\line{|\line{Five\hfil words\hfil equally\hfil spaced\hfil out.}|}
+\line{Five\hfil words\hfil equally\hfil spaced\hfil out.}
+\vskip1em
+}
+\kern1em\vrule}
+\hrule}
+
+\vskip\baselineskip
+
 \myhr
 
+\ansno12.2:
+Official answer: `` |\line{\hfil\hfil What happens now?\hfil}| is
+placed in a line of width\break |\hsize|, with twice as much space at the
+left as at the right.''
+\vskip.5em
+\borderedbox{
+\line{\hfil\hfil What happens now?\hfil}
+}
 
+`` |\line{\hfill\hfil and now?\hfil}|\ is put flush right on the
+following line.''
+\vskip.5em
+\borderedbox{
+\line{\hfill\hfil and now?\hfil}
+}
+
+\ansno12.3:
+Official answer: ``The first two give an ``overfull box'' if the
+argument doesn't fit on a line; the third allows the argument to stick
+out into the margins instead. \ (Plain \TeX's ^|\centerline| is
+|\centerlinec|; the stickout effect shows up in the narrow-column
+experiment of Chapter~6.) \ If the argument contains no infinite glue,
+|\centerlinea| and |\centerlineb| produce the same effect; but
+|\centerlineb| will center an argument that contains `fil' glue.''
+
+\myhr
 
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
