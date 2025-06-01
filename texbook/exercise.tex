@@ -988,6 +988,109 @@ Official answer: ``There are several ways; perhaps the easiest are to
 type `|\hbox{NASA}.|'\ or `|NASA\null.|' \ (The ^|\null| macro is an
 abbreviation for `|\hbox{}|'.)''
 
+\ansno12.7:
+Official answer: ``1000, except: 999 after |O|, |B|, |S|, |D|, and
+|J|; 1250 after the comma; 3000 after the exclamation point, the
+right-quote marks, and the periods. If a period had come just after
+the |B| (i.e., if the text had said `|B. Sally|'), the space factor
+after that period would have been~1000, not~3000.''
+
+\ansno12.8:
+Official answer: ``|\box3| is $2\pt$ high, $4\pt$ deep, $3\pt$ wide.
+Starting at the reference point of\/ |\box3|, go right $.75\pt$ and
+down $3\pt$ to reach the reference point of\/ |\box1|; or go right
+$1\pt$ to reach the reference point of\/ |\box2|.''
+
+\ansno12.9:
+Official answer: ``The stretch and shrink components of\/
+|\baselineskip| and |\lineskip| should be equal, and the
+|\lineskiplimit| should equal the normal |\lineskip| spacing, to
+guarantee continuity.''
+
+\ansno12.10:
+Official answer: ``Yes it did, but only because none of his boxes had
+a negative height or depth. He would have been safer if he had set
+|\baselineskip=-1000pt|, |\lineskip=0pt|, and
+|\lineskiplimit=16383pt|. \ (Plain \TeX's ^|\offinterlineskip| macro
+does this.)''
+
+\ansno12.11:
+Official answer: ``The interline glue will be zero, and the natural
+height is $1+1-3+2=1\pt$ (because the depth of\/ |\box2| isn't
+included in the natural height); so the glue will ultimately become
+|\vskip-1pt| when it's set.  Thus, |\box3| is $3\pt$ high, $2\pt$
+deep, $4\pt$ wide. Its reference point coincides with that of\/
+|\box2|; to get to the reference point of\/ |\box1| you go up $2\pt$
+and right $3\pt$.''
+
+\ansno12.12:
+Official answer: ``The interline glue will be $6\pt$ minus $3\,{\rm fil}$; the final
+depth will be zero, since |\box2| is followed by glue; the natural
+height is $12\pt$; and the shrinkability is $5\,{\rm fil}$. So |\box4|
+will be $4\pt$ high, $0\pt$ deep, $1\pt$ wide, and it will contain
+five items: |\vskip|\penalty0\hbox{|-1.6pt|}, |\box1|, |\vskip1.2pt|,
+|\moveleft4pt\box2|, |\vskip-1.6pt|. Starting at the reference point of
+|\box4|, you get to the reference point of\/ |\box1| by going up $4.6\pt$,
+or to the reference point of\/ |\box2| by going up $.4\pt$ and left $4\pt$.
+\ (For example, you go up $4\pt$ to get to the upper left corner of
+|\box4|; then down $-1.6\pt$, i.e., up $1.6\pt$, to get to the upper
+left corner of\/ |\box1|; then down $1\pt$ to reach its reference
+point.  This problem is clearly academic, since it's rather ridiculous
+to include infinite shrinkability in the baselineskip.)''
+
+\ansno12.13:
+Official answer: ``Now |\box4| will be $4\pt$ high, $-4\pt$ deep,
+$1\pt$ wide, and it will contain |\vskip|\penalty0\hbox{|-2.4pt|},
+|\box1|, |\vskip-1.2pt|, |\moveleft4pt\box2|, |\vskip-2.4pt|. From the
+baseline of\/ |\box4|, go up exactly $5.4\pt$ to reach the baseline
+of\/ |\box1|, or exactly $3.6\pt$ to reach the baseline of\/
+|\box2|.''
+
+\ansno12.14:
+Official answer: ``|\vbox to| $x$|{}| produces height $x$;
+|\vtop to| $x$|{}| produces depth $x$; the other dimensions are zero.
+\ (This holds even when $x$ is negative.)''
+
+\ansno12.15:
+Official answer: ``
+There are several possibilities:
+\begintt
+\def\nullbox#1#2#3{\vbox to#1{\vss\hrule height-#2depth#2width#3}}
+\endtt
+works because the rule will be of zero thickness. Less tricky is
+\begintt
+\def\nullbox#1#2#3{\vbox to#1{\vss\vtop to#2{\vss\hbox to#3{}}}}
+\endtt
+Both of these are valid with negative height and/or depth, but they do
+not produce negative width. If the width might be negative, but not the
+height or depth, you can use, e.g.,
+|\def\nullbox#1#2#3{\hbox to#3{\hss\raise#1\null\lower#2\null}}|.
+It's impossible for |\hbox| to construct a box
+whose height or depth is negative; it's impossible for |\vbox| or
+|\vtop| to construct a box whose width is negative.\par
+However, there's actually a trivial solution to the general problem, based on
+features that will be discussed later:
+\begintt
+\def\nullbox#1#2#3{\setbox0=\null
+  \ht0=#1 \dp0=#2 \wd0=#3 \box0 }
+\endtt
+''
+
+\ansno12.16:
+Official answer: ``|\def\llap#1{\hbox to 0pt{\hss#1}}|''
+
+\ansno12.17:
+Official answer: ``You get `A' at the extreme left and `puzzle.\null'
+at the extreme right, because the space between words has the only
+stretchability that is finite; the infinite stretchability cancels
+out. \ (In this case, \TeX's rule about ^{infinite glue} differs from
+what you would get in the limit if the value of $1\,{\rm fil}$ were
+finite but getting larger and larger.  The true limiting behavior
+would stretch the text `A~puzzle.\null' in the same way, but it would
+also move that text infinitely far away beyond the right edge of the
+page.)''
+
+
 \myhr
 
 %% [2025-05-30T21:00:50+08:00] Tired of being perceiving from
