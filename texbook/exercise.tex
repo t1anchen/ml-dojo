@@ -1115,6 +1115,35 @@ Display Math Mode          & math formula on a line by itself\cr
 \ansno13.1:
 |\hbox| will not work
 
+\ansno13.2:
+Official answer: ``The output of\/ |\tracingcommands| shows that four
+blank space tokens were digested; these originated at the ends of
+lines 2,~3, 4, and~5. Only the first had any effect, since blank
+spaces are ignored in math formulas and in vertical modes.''
+
+\ansno13.3:
+Official answer: ``The |end-group character| finishes the paragraph and the |\vbox|,
+and |\bye| stands for `|\par\vfill...|', so the next three commands are
+\begintt
+{math mode: math shift character $}
+{restricted horizontal mode: end-group character }}
+{vertical mode: \par}
+\endtt
+''
+
+\ansno13.4:
+Official answer: ``It contains only mixtures of vertical glue and
+horizontal rules whose reference points appear at the left of the
+page; there's no text.''
+
+\ansno13.5:
+Official answer: ``Vertical mode can occur only as the outermost mode;
+horizontal mode and display math mode can occur only when immediately
+enclosed by vertical or internal vertical mode; ordinary math mode
+cannot be immediately enclosed by vertical or internal vertical mode;
+all other cases are possible.''
+
+\myhr
 
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
