@@ -1181,6 +1181,44 @@ has a fixed width since that glue has already been set once and for
 all.  Furthermore the first alternative permits the word Chapter to be
 ^{hyphenate}d.''
 
+\ansno14.5:
+Official answer: ```|\hbox{$x=0$}|' is unbreakable, and we will see
+later that `|${x=0}$|' cannot be broken. Both of these solutions set
+the glue surrounding the equals sign to some fixed value, but such
+glue normally wants to stretch; furthermore, the |\hbox| solution
+might include undesirable blank space at the beginning or end of a
+line, if\/ ^|\mathsurround| is nonzero. A third solution
+`|$x=\nobreak0$|' avoids both defects.''
+
+\ansno14.6:
+Official answer: ``|\exhyphenpenalty=10000| prohibits all such breaks,
+according to the rules found later in this chapter. Similarly,
+|\hyphenpenalty=10000| prevents breaks after implicit (discretionary)
+hyphens.''
+
+\myhr
+
+\noindent{\bf Summary}
+{\obeylines\smallskip
+Roses are red,
+\quad Violets are blue;
+Rhymes can be typeset
+\quad With boxes and glue.
+\smallskip}
+
+\myhr
+
+\ansno14.7:
+Official answer: ``The second and fourth lines are indented by an additional ``quad''
+of space, i.e., by one extra em in the current type style.
+\ (The control sequence |\quad| does an ^|\hskip|; when \TeX\ is in
+vertical mode, |\hskip| begins a new paragraph and puts glue after the
+indentation.) \ If\/ |\indent| had been used instead, those lines
+wouldn't have been indented any more than the first and third, because
+|\indent| is implicit at the beginning of every paragraph.  Double
+indentation on the second and fourth lines could have been achieved by
+`|\indent\indent|'.''
+
 \myhr
 
 
