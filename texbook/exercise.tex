@@ -1221,6 +1221,36 @@ indentation on the second and fourth lines could have been achieved by
 
 \myhr
 
+\noindent{\bf Summary}
+\vskip1em
+\noindent\item\bull Each item in a horizontal list is one of the following types of things
+
+\halign{\hfil#\ &\ #\hfil\cr
+a box                 & (a character or ligature or rule or hbox or vbox)\cr
+a discretionary break & (to be explained momentarily)\cr
+a ``whatsit''         & (something special to be explained later)\cr
+vertical material     & (from |\mark| or |\vadjust| or |\insert|)\cr
+a glob of glue        & (or |\leaders|, as we will see later)\cr
+a kern                & (something like glue that doesn’t stretch or shrink)\cr
+a penalty             & (representing the undesirability of breaking here)\cr
+``math-on''           & (beginning a formula) or “math-off” (ending a formula)\cr
+}
+\vskip1em
+
+\noindent\item\bull4 types {\it discardable}:
+\halign{\hfil#\ &\ #\hfil\cr
+non-discardable & box \cr
+non-discardable & discretionary break \cr
+non-discardable & ``whatsit'' \cr
+non-discardable & vertical material \cr
+discardable & glue\cr
+discardable & kern\cr
+discardable & penalty\cr
+discardable & math items\cr
+}
+
+\myhr
+
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
 %% \message{The current \string\vsize\space is \the\vsize.}
