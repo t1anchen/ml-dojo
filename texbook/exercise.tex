@@ -1366,7 +1366,22 @@ that subcases have twice as much hanging indentation.
 \noindent{\dimen0=\hsize \advance\dimen0 by 2em
 \parshape=3 0pt\hsize 0pt\hsize -2em\dimen0
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus lacus et quam hendrerit egestas. Sed gravida eros vitae felis condimentum gravida. Suspendisse efficitur tellus a euismod semper. Donec ac turpis pellentesque, commodo neque vitae, rhoncus massa.}
-
+\vfill
+\eject
+
+\noindent{\bf Summary}
+\myhr
+\ansno15.12:
+\begintt
+\newcount\notenumber
+\def\clearnotenumber{\notenumber=0\relax}
+\def\note{\advance\notenumber by 1
+\footnote{$^{\the\notenumber}$}}
+\endtt
+\borderedbox{\def\clearnotenumber{\notenumber=0\relax}
+\def\note{\advance\notenumber by 1
+\footnote{$^{\the\notenumber}$}}
+}
 \myhr
 
 
