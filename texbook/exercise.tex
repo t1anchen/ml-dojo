@@ -1251,6 +1251,124 @@ discardable & math items\cr
 
 \myhr
 
+\ansno14.8:
+Official answer: ``|ba\ck/en| and |Be\ttt/uch|, where the macros |\ck/| and |\ttt/|
+are defined by
+\begintt
+\def\ck/{\discretionary{k-}{k}{ck}}
+\def\ttt/{tt\discretionary{-}{t}{}}
+\endtt
+The English word `eighteen' might deserve similar treatment.
+\TeX's hyphenation algorithm will not make such spelling changes automatically.''
+
+\ansno14.9:
+Official answer: ``|\def\break{\penalty-10000 }|''
+
+\ansno14.10:
+Official answer: ``You get a forced break as if\/ |\nobreak| were not
+present, because |\break| cannot be cancelled by another penalty. In
+general if you have two penalties in a row, their combined effect is
+the same as a single penalty whose value is the minimum of the two
+original values, unless both of those values force breaks. \ (You get
+two breaks from |\break\break|; the second one creates an empty
+line.)''
+
+\ansno14.11:
+Official answer: ``Breaks are forced when $p\le-10000$, so there's no
+point in subtracting a large constant whose effect on the total
+demerits is known {\sl a priori}, especially when that might cause
+arithmetic overflow.''
+
+\ansno14.18:
+\begintt
+\newdimen\x
+\x=1em
+\setbox1=\hbox{I}
+\setbox0=\vbox{\parshape=11 -0\x0\x -1\x2\x -2\x4\x -3\x6\x
+   -4\x8\x -5\x10\x -6\x12\x -7\x14\x -8\x16\x -9\x18\x -10\x20\x
+  \ifdim \x>2em \rightskip=-\wd1
+  \else \frenchspacing \rightskip=-\wd1 plus1pt minus1pt
+   \leftskip=0pt plus 1pt minus1pt \fi
+  \parfillskip=0pt \tolerance=1000 \noindent
+I turn, in the following treatises, to various uses of those triangles
+whose generator is unity. But I leave out many more than I include; it
+is extraordinary how fertile in properties this triangle is. Everyone
+can try his hand.}
+\centerline{\hbox to \wd1{\box0\hss}}
+\endtt
+\newdimen\x
+\x=1em
+\setbox1=\hbox{I}
+\setbox0=\vbox{\parshape=11 -0\x0\x -1\x2\x -2\x4\x -3\x6\x
+   -4\x8\x -5\x10\x -6\x12\x -7\x14\x -8\x16\x -9\x18\x -10\x20\x
+  \ifdim \x>2em \rightskip=-\wd1
+  \else \frenchspacing \rightskip=-\wd1 plus1pt minus1pt
+   \leftskip=0pt plus 1pt minus1pt \fi
+  \parfillskip=0pt \tolerance=1000 \noindent
+I turn, in the following treatises, to various uses of those triangles
+whose generator is unity. But I leave out many more than I include; it
+is extraordinary how fertile in properties this triangle is. Everyone
+can try his hand.}
+\centerline{\hbox to \wd1{\box0\hss}}
+
+\myhr
+
+\noindent{\bf Summary}
+\item\bull `|\item|' marco
+
+\begintt
+\item{1.} This is the first of several cases that are being
+enumerated, with hanging indentation applied to entire paragraphs.
+\itemitem{a)} This is the first subcase.
+\itemitem{b)} And this is the second subcase. Notice
+that subcases have twice as much hanging indentation.
+\item{2.} The second case is similar.
+\endtt
+\borderedbox{
+\item{1.} This is the first of several cases that are being
+enumerated, with hanging indentation applied to entire paragraphs.
+\itemitem{a)} This is the first subcase.
+\itemitem{b)} And this is the second subcase. Notice
+that subcases have twice as much hanging indentation.
+\item{2.} The second case is similar.
+}
+
+\ansno14.19:
+\begintt
+\item{1.} a
+\item{2.} b
+\item{3.} c
+\endtt
+
+\item{1.} a
+\item{2.} b
+\item{3.} c
+
+\ansno14.20:
+|\item{$\bullet$}|
+\item{$\bullet$} a
+
+\ansno14.21:
+{\let\endgraf=\par \edef\restorehsize{\hsize=\the\hsize}
+\def\par{\endgraf \restorehsize \let\par=\endgraf}
+\advance\hsize by-\parindent
+\item\bull Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus lacus et quam hendrerit egestas. Sed gravida eros vitae felis condimentum gravida. Suspendisse efficitur tellus a euismod semper. Donec ac turpis pellentesque, commodo neque vitae, rhoncus massa.}
+
+\ansno14.22:
+
+\begintt
+\dimen0=\hsize \advance\dimen0 by 2em
+\parshape=3 0pt\hsize 0pt\hsize -2em\dimen0
+\endtt
+
+\noindent{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus lacus et quam hendrerit egestas. Sed gravida eros vitae felis condimentum gravida. Suspendisse efficitur tellus a euismod semper. Donec ac turpis pellentesque, commodo neque vitae, rhoncus massa.}
+\vskip1em
+\noindent{\dimen0=\hsize \advance\dimen0 by 2em
+\parshape=3 0pt\hsize 0pt\hsize -2em\dimen0
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus lacus et quam hendrerit egestas. Sed gravida eros vitae felis condimentum gravida. Suspendisse efficitur tellus a euismod semper. Donec ac turpis pellentesque, commodo neque vitae, rhoncus massa.}
+
+\myhr
+
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
 %% \message{The current \string\vsize\space is \the\vsize.}
