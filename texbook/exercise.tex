@@ -1525,7 +1525,52 @@ $\beta,\gamma,\zeta,\eta,\mu,\xi,\rho,\phi,\varphi,\chi,\psi$.)''
 \vfill
 \eject
 
+\noindent Chapter 17.
 
+\myhr
+
+\noindent{\bf Summary}
+\begindisplaymathdemo
+\it Input&\it Output\cr
+\noalign{\vskip-3pt}
+|$$x+y^2\over k+1$$|&x+y^2\over k+1\cr
+\noalign{\vskip2pt}
+|$${x+y^2\over k}+1$$|&{x+y^2\over k}+1\cr
+\noalign{\vskip-1pt}
+|$$x+{y^2\over k}+1$$|&x+{y^2\over k}+1\cr
+\noalign{\vskip-1pt}
+|$$x+{y^2\over k+1}$$|&x+{y^2\over k+1}\cr
+\noalign{\vskip-3pt}
+|$$x+y^{2\over k+1}$$|&x+y^{2\over k+1}\cr
+\endmathdemo
+
+\myhr
+
+\ansno17.1:
+\beginmathdemo
+|$x+y^{2/(k+1)}$|&x+y^{2/(k+1)}\cr
+\endmathdemo
+
+\ansno17.2:
+\beginmathdemo
+|$((a+1)/(b+1))x$|&((a+1)/(b+1))x\cr
+\endmathdemo
+
+\ansno17.3:
+Official answer: ``He got the displayed formula$$x=(y^2\over k+1)$$ because he forgot
+that an unconfined |\over| applies to everything.  \ (He should probably
+have typed `|$$x=\left(y^2\over k+1\right)$$|', using ideas that will be
+presented later in this chapter; this not only makes the parentheses
+larger, it keeps the `$x=$' out of the fraction, because |\left| and
+|\right| introduce subformulas.)''\parbreak
+Correct version: $$x=\left(y^2\over k+1\right)$$
+
+\ansno17.4:
+\def\cents{\hbox{\rm\rlap/c}}
+\beginmathdemo
+|$7{1\over2}\cents$| & 7{1\over2}\cents\cr
+or |7$1\over2$\cents| & \cr
+\endmathdemo
 
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
