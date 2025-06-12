@@ -1394,6 +1394,139 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus lacus et 
 \ansno16.1:
 `|$\gamma + \nu \in \Gamma$|' $\rightarrow$ `$\gamma + \nu \in \Gamma$'
 
+\ansno16.2:
+\halign{\indent\hfil#\ &\ #\hfil\cr
+$\leq$ & |\leq|\cr
+$\geq$ & |\geq|\cr
+$\ne$ & |\ne|\cr
+}
+
+\myhr
+
+\noindent{\bf Summary}
+\item\bull when following a subformula it applies to that whole subformula, and
+it will be raised or lowered accordingly
+\beginmathdemo
+|$((x^2)^3)^4$|&((x^2)^3)^4\cr
+|${({(x^2)}^3)}^4$|&{({(x^2)}^3)}^4\cr
+\endmathdemo
+
+\myhr
+\ansno16.3:
+\halign{\indent\hfil#\ &\ #\ &\ #\hfil\cr
+|$x + _2F_3$|   & $x + _2F_3$   & it applies to the plus sign \cr
+|$x + {}_2F_3$| & $x + {}_2F_3$ & it applies to empty subformula \cr
+}
+
+\ansno16.4:
+$F'(w,z)=\partial F(w,z)/\partial z$ and $F_\prime(w,z)=\partial F(w,z)/
+\partial w$
+
+\ansno16.6:
+`$R_i{}^{jk}{}_l$' $\rightarrow$ `|$R_i{}^{jk}{}_l$|'
+
+\ansno16.7:
+\halign{\indent\hfil#\ &\ #\hfil\cr
+$10^{10}$ & |$10^{10}$|\cr
+$2^{n+1}$ & |$2^{n+1}$|\cr
+$(n+1)^2$ & |$(n+1)^2$|\cr
+$\sqrt{1-x^2}$ & |$\sqrt{1-x^2}$|\cr
+$\overline{w+\overline{z}}$ & |$\overline{w+\overline{z}}$|\cr
+$P_1^{e_1}$ & |$P_1^{e_1}$|\cr
+$a_{b_{c_{d_e}}}$ & |$a_{b_{c_{d_e}}}$|\cr
+$\root 3 \of {h''_n (\alpha x)}$ & |$\root 3 \of {h''_n (\alpha x)}$|\cr
+}
+
+\ansno16.8:
+\halign{\indent\hfil#\ $\rightarrow$&\ #\hfil\cr
+`If$ x = y$, then $x$ is equal to $y.$' & `If $x = y$, then $x$ is equal to $y$.'\cr
+|If$ x = y$, then $x$ is equal to $y.$| & |If $x = y$, then $x$ is equal to $y$.|\cr
+}
+
+Offical answer: ``He got `If$ x = y\ldots$' because he forgot to leave
+a space after `|If|'; ^{spaces} disappear between dollar signs. He
+should also have ended the sentence with `|$y$.|'; punctuation that
+belongs to a sentence should not be included in a formula, as we will
+see in Chapter~18. \ (But you aren't expected to know that yet.)''
+
+\ansno16.9:
+`Deleting an element from an $n$-tuple leaves an $(n-1)$-tuple.'\parbreak
+|`Deleting an element from an $n$-tuple leaves an $(n-1)$-tuple.'|
+
+\ansno16.10:
+Official answer: ``$Q,f,g,j,p,q,y$. \ (The analogous ^{Greek} letters
+are ^^{italic letters with descenders} ^^{descenders}
+$\beta,\gamma,\zeta,\eta,\mu,\xi,\rho,\phi,\varphi,\chi,\psi$.)''
+
+\myhr
+\noindent{\bf Summary}
+\beginmathdemo
+|$x\times y\cdot z$|&x\times y\cdot z\cr
+|$x\circ y\bullet z$|&x\circ y\bullet z\cr
+|$x\cup y\cap z$|&x\cup y\cap z\cr
+|$x\sqcup y\sqcap z$|&x\sqcup y\sqcap z\cr
+|$x\vee y\wedge z$|&x\vee y\wedge z\cr
+|$x\pm y\mp z$|&x\pm y\mp z\cr
+|$x=+1$|&x=+1\cr
+|$3.142-$|&3.142-\cr
+|$(D*)$|&(D*)\cr
+\endmathdemo
+\myhr
+
+\ansno16.11:
+\halign{\indent\hfil#\ &\ #\hfil\cr
+|$z^{*2}$|  &$z^{*2}$\cr
+|$h_*'(z)$| & $h_*'(z)$\cr
+}
+\myhr
+\noindent{\bf Summary}
+\beginmathdemo
+|$x=y>z$|&x=y>z\cr
+|$x:=y$|&x:=y\cr
+|$x\le y\ne z$|&x\le y\ne z\cr
+|$x\sim y\simeq z$|&x\sim y\simeq z\cr
+|$x\equiv y\not\equiv z$|&x\equiv y\not\equiv z\cr
+|$x\subset y\subseteq z$|&x\subset y\subseteq z\cr
+|$f:A\to B$|&f:A\to B\cr
+|$f\colon A\to B$|&f\colon A\to B\cr
+|$12,345x$|&12,345x\qquad\rm(wrong)\cr
+|$12{,}345x$|&12{,}345x\qquad\,\rm(right)\cr
+\endmathdemo
+\myhr
+
+\ansno16.12:
+`|$3{\cdot}1416$|' $\rightarrow$ `$3{\cdot}1416$'
+
+\myhr
+\noindent{\bf Summary}
+\beginmathdemo
+|$\hat a$|&\hat a\cr
+|$\check a$|&\check a\cr
+|$\tilde a$|&\tilde a\cr
+|$\acute a$|&\acute a\cr
+|$\grave a$|&\grave a\cr
+|$\dot a$|&\dot a\cr
+|$\ddot a$|&\ddot a\cr
+|$\breve a$|&\breve a\cr
+|$\bar a$|&\bar a\cr
+|$\vec a$|&\vec a\cr
+|$\widehat x,\widetilde x$|&\tenmath\widehat x,\widetilde x\cr
+|$\widehat{xy},\widetilde{xy}$|&\tenmath\widehat{xy},\widetilde{xy}\cr
+|$\widehat{xyz},\widetilde{xyz}$|&\tenmath\widehat{xyz},\widetilde{xyz}\cr
+\endmathdemo
+\myhr
+\ansno16.13:
+\def\ghat{{\hat g}}
+\beginmathdemo
+|$e^{-x^2}$| & e^{-x^2}\cr
+|$D\sim p^\alpha M+l$| & D\sim p^\alpha M+l\cr
+|$\ghat\in(H^{\pi_1^{-1}})'$| & \ghat\in(H^{\pi_1^{-1}})'\cr
+\endmathdemo
+\vfill
+\eject
+
+
+
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
 %% \message{The current \string\vsize\space is \the\vsize.}
