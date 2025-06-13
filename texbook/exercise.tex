@@ -1516,12 +1516,12 @@ $\beta,\gamma,\zeta,\eta,\mu,\xi,\rho,\phi,\varphi,\chi,\psi$.)''
 \endmathdemo
 \myhr
 \ansno16.13:
-\def\ghat{{\hat g}}
+{\def\ghat{{\hat g}}
 \beginmathdemo
 |$e^{-x^2}$| & e^{-x^2}\cr
 |$D\sim p^\alpha M+l$| & D\sim p^\alpha M+l\cr
 |$\ghat\in(H^{\pi_1^{-1}})'$| & \ghat\in(H^{\pi_1^{-1}})'\cr
-\endmathdemo
+\endmathdemo}
 \vfill
 \eject
 
@@ -1566,11 +1566,204 @@ larger, it keeps the `$x=$' out of the fraction, because |\left| and
 Correct version: $$x=\left(y^2\over k+1\right)$$
 
 \ansno17.4:
-\def\cents{\hbox{\rm\rlap/c}}
+{\def\cents{\hbox{\rm\rlap/c}}
 \beginmathdemo
 |$7{1\over2}\cents$| & 7{1\over2}\cents\cr
 or |7$1\over2$\cents| & \cr
+\endmathdemo}
+
+\ansno17.5:
+Official answer: ``Style $D'$ is used for the subformula $p_2^{e'}$, hence style~$S'$
+is used for the superscript~$e'$ and the subscript~2, and style~$\SS'$
+is used for the supersuperscript prime. The square root sign and the $p$
+appear in text size; the 2 and the~$e$ appear in script size; and the
+$\prime$ is in scriptscript size.''
+
+\myhr
+
+\noindent{\bf Summary}
+\item\bull continued fraction (with |\strut| and |\displaystyle|)
+$$a_0+{1\over\displaystyle a_1+
+          {\strut 1\over\displaystyle a_2+
+            {\strut 1\over\displaystyle a_3+
+              {\strut 1\over a_4}}}}$$
+\item\bull continued fraction (without |\strut| and |\displaystyle|)
+$$a_0+{1\over a_1+{1\over
+      a_2+{1\over a_3+{1\over a_4}}}}$$
+\item\bull continued fraction (with flush left)
+$$a_0+{1\hfill\over\displaystyle a_1+
+          {\strut1\hfill\over\displaystyle a_2+
+            {\strut1\hfill\over\displaystyle a_3+
+              {\strut1\over a_4}}}}$$
+\item\bull |\atop|
+\begindisplaymathdemo
+|$$x\atop y+2$$|&x\atop y+2\cr
 \endmathdemo
+
+\item\bull |\choose|
+\begindisplaymathdemo
+|$$n\choose k$$|&n\choose k\cr
+\endmathdemo
+
+\myhr
+
+\ansno17.6:
+\item\bull |$${1\over2}{n\choose k}$$| $${1\over2}{n\choose k}$$
+\item\bull |$$\displaystyle{n\choose k}\over2$$| $$\displaystyle{n\choose k}\over2$$
+
+\ansno17.7:
+\item\bull |$${p \choose 2} x^2 y^{p-2} - {1 \over 1-x}{1 \over 1-x^2}.$$|
+$${p \choose 2} x^2 y^{p-2} - {1 \over 1-x}{1 \over 1-x^2}.$$
+
+\myhr
+\noindent{\bf Summary}
+\item\bull |\sum|
+$$\halign{\indent#\hfil\qquad yields\qquad&$#\hfil$\qquad&#\hfil\cr
+|$\sum x_n$|&\sum x_n&($T$ style)\cr
+\noalign{\vskip3pt}
+|$$\sum x_n$$|&\displaystyle\sum x_n&($D$ style).\cr}$$
+\item\bull |\infty|
+$$\halign{\indent\hbox to2.3in{#\hfil}\hbox to.6in{yields\hfil}&
+  $#\hfil$\qquad&#\hfil\cr
+|$\int_{-\infty}^{+\infty}$|&\int_{-\infty}^{+\infty}&($T$ style)\cr
+\noalign{\vskip3pt}
+|$$\int_{-\infty}^{+\infty}$$|&\displaystyle\int_{-\infty}^{+\infty}&
+  ($D$ style).\cr}$$
+\item\bull |\atop| in |\sum|
+\begintt
+$$\sum_{\scriptstyle0\le i\le m\atop\scriptstyle0<j<n}P(i,j)$$
+\endtt
+$$\sum_{\scriptstyle0\le i\le m\atop\scriptstyle0<j<n}P(i,j)$$
+
+\myhr
+\ansno17.8:
+|$$\sum_{i=1}^p\sum_{j=1}^q\sum_{k=1}^ra_{ij}b_{jk}c_{ki}$$|
+$$\sum_{i=1}^p\sum_{j=1}^q\sum_{k=1}^ra_{ij}b_{jk}c_{ki}$$
+
+\ansno17.9:
+|$$\sum_{{\scriptstyle 1\le i\le p \atop \scriptstyle 1\le j\le q}
+    \atop \scriptstyle 1\le k\le r} a_{ij} b_{jk} c_{ki}$$|
+$$\sum_{{\scriptstyle 1\le i\le p \atop \scriptstyle 1\le j\le q}
+    \atop \scriptstyle 1\le k\le r} a_{ij} b_{jk} c_{ki}$$
+
+\myhr
+\noindent{\bf Summary}
+\item\bull groups of square roots
+\begintt
+$$\sqrt{1+\sqrt{1+\sqrt{1+
+            \sqrt{1+\sqrt{1+\sqrt{1+\sqrt{1+x}}}}}}}$$
+\endtt
+$$\sqrt{1+\sqrt{1+\sqrt{1+
+            \sqrt{1+\sqrt{1+\sqrt{1+\sqrt{1+x}}}}}}}$$
+\item\bull delimiters
+\begindisplay
+\it Input         & \it Delimiter\cr
+\noalign{\vskip2pt}
+|(|               & left parenthesis: $($\cr
+|)|               & right parenthesis: $)$\cr
+|[| or |\lbrack|  & left bracket: $[$\cr
+|]| or |\rbrack|  & right bracket: $]$\cr
+|\{| or |\lbrace| & left curly brace: $\{$\cr
+|\}| or |\rbrace| & right curly brace: $\}$\cr
+|\lfloor|         & left floor bracket: $\lfloor$\cr
+|\rfloor|         & right floor bracket: $\rfloor$\cr
+|\lceil|          & left ceiling bracket: $\lceil$\cr
+|\rceil|          & right ceiling bracket: $\rceil$\cr
+|\langle|         & left angle bracket: $\langle$\cr
+|\rangle|         & right angle bracket: $\rangle$\cr
+|/|               & slash: $/$\cr
+|\backslash|      & reverse slash: $\backslash$\cr
+\| or |\vert|     & vertical bar: $\vert$\cr
+|\|\| or |\Vert|  & double vertical bar: $\Vert$\cr
+|\uparrow|        & upward arrow: $\uparrow$\cr
+|\Uparrow|        & double upward arrow: $\Uparrow$\cr
+|\downarrow|      & downward arrow: $\downarrow$\cr
+|\Downarrow|      & double downward arrow: $\Downarrow$\cr
+|\updownarrow|    & up-and-down arrow: $\updownarrow$\cr
+|\Updownarrow|    & double up-and-down arrow: $\Updownarrow$\cr
+\enddisplay
+
+\item\bull |\bigl|, |\bigr|
+\beginlongmathdemo
+\it Input&\it Output\cr
+\noalign{\vskip2pt}
+|$\bigl(x-s(x)\bigr)\bigl(y-s(y)\bigr)$|&
+  \bigl(x-s(x)\bigr)\bigl(y-s(y)\bigr)\cr
+|$\bigl[x-s[x]\bigr]\bigl[y-s[y]\bigr]$|&
+  \bigl[x-s[x]\bigr]\bigl[y-s[y]\bigr]\cr
+|$\bigl|\|| |\||x|\||-|\||y|\|| \bigr|\||$|&
+  \bigl\vert\vert x\vert-\vert y\vert\bigr\vert\cr
+|$\bigl\lfloor\sqrt A\bigr\rfloor$|&
+  \bigl\lfloor\sqrt A\bigr\rfloor\cr
+\endmathdemo
+\item\bull |\Bigl|, |\Bigr|
+\item\bull |\biggl|, |\biggr|
+\item\bull |\Biggl|, |\Biggr|
+
+\myhr
+
+\ansno17.10:
+|$\displaystyle\biggl({\partial^2\over\partial x^2}+|\hfil\break
+|{\partial^2\over\partial y^2}\biggr)\bigl|\||\varphi(x+iy)\bigr|\||^2=0$|.\parbreak
+$\displaystyle\biggl({\partial^2\over\partial x^2}+
+{\partial^2\over\partial y^2}\biggr)\bigl\vert\varphi(x+iy)\bigr\vert^2=0$
+
+\ansno17.11:
+Official answer: ``Formulas that are more than one line tall are
+usually two lines tall, not 1$1\over2$ or 2$1\over2$ lines tall.''
+
+\ansno17.12:
+|$\bigl(x+f(x)\bigr) \big/ \bigl(x-f(x)\bigr)$|
+$\bigl(x+f(x)\bigr) \big/ \bigl(x-f(x)\bigr)$
+
+\ansno17.13:
+|$$\pi(n)=\sum_{k=2}^n\left\lfloor\phi(k)\over k-1\right\rfloor.$$|
+$$\pi(n)=\sum_{k=2}^n\left\lfloor\phi(k)\over k-1\right\rfloor.$$
+
+\ansno17.14:
+|$$\pi(n)=\sum_{m=2}^n\left\lfloor\biggl(\sum_{k=1}^{m-1}\bigl|
+\hfil\break
+|\lfloor(m/k)\big/\lceil m/k\rceil\bigr\rfloor\biggr)^{-1}\right\rfloor.$$|
+$$\pi(n)=\sum_{m=2}^n\left\lfloor\biggl(\sum_{k=1}^{m-1}\bigl\lfloor
+  (m/k)\big/\lceil m/k\rceil\bigr\rfloor\biggr)^{-1}\right\rfloor.$$
+
+\ansno17.15:
+\begintt
+\def\puzzle{{\mathchoice{D}{T}{S}{SS}}}
+$$\puzzle{\puzzle\over\puzzle^{\puzzle^\puzzle}}$$
+\endtt
+{\def\puzzle{{\mathchoice{D}{T}{S}{SS}}}
+$$\puzzle{\puzzle\over\puzzle^{\puzzle^\puzzle}}$$}
+$\equiv$ |$${D}{{T}\over{T}^{{S}^{SS}}}$$|
+$${D}{{T}\over{T}^{{S}^{SS}}}$$
+
+\ansno17.16:
+|\def\sqr#1#2{{\vcenter{\vbox{\hrule height.#2pt          |\parbreak
+|        \hbox{\vrule width.#2pt height#1pt \kern#1pt     |\parbreak
+|           \vrule width.#2pt}                            |\parbreak
+|        \hrule height.#2pt}}}}                           |\parbreak
+|\def\square{\mathchoice\sqr34\sqr34\sqr{2.1}3\sqr{1.5}3} |
+
+{\def\sqr#1#2{{\vcenter{\vbox{\hrule height.#2pt
+        \hbox{\vrule width.#2pt height#1pt \kern#1pt
+           \vrule width.#2pt}
+        \hrule height.#2pt}}}}
+\def\square{\mathchoice\sqr34\sqr34\sqr{2.1}3\sqr{1.5}3}
+$\square$}
+
+\ansno17.17:
+{|\def\euler{\atopwithdelims<>}|
+\def\euler{\atopwithdelims<>}
+$$n\euler k$$}
+
+\ansno17.18:
+Official answer: ``The |\textfont0| that was current at the beginning of the formula
+will be used, because this redefinition is local to the braces. \
+(It would be a different story if `^|\global||\textfont|' had appeared instead;
+that would have changed the meaning of\/ |\textfont0| at all levels.)''
+
+\ansno17.19:
+Official answer: ``\hex{2208} and \hex{220F}.''
 
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
