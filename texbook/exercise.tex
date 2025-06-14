@@ -1764,6 +1764,102 @@ that would have changed the meaning of\/ |\textfont0| at all levels.)''
 
 \ansno17.19:
 Official answer: ``\hex{2208} and \hex{220F}.''
+\vfill
+\eject
+
+
+\noindent Chapter 18.
+\myhr
+\ansno18.1:
+|$R(n,t)=O(t^{n/2})$, as $t\to0^+$.|
+$R(n,t)=O(t^{n/2})$, as $t\to0^+$.
+
+\ansno18.2:
+|$$p_1(n) = \lim_{m\to\infty}\sum_{\nu=0}^\infty|\parbreak
+|\left(1-\cos^{2m}(\nu!^n\pi/n)\right)$$|
+$$p_1(n) = \lim_{m\to\infty}\sum_{\nu=0}^\infty\left(1-\cos^{2m}(\nu!^n\pi/n)\right)$$
+
+\ansno18.3:
+\begintt
+\def\limsup{\mathop{\overline{\rm lim}}}
+\def\liminf{\mathop{\underline{\rm lim}}}
+$$\lim_{n\to\infty}x_n{\rm\ exists}\iff
+  \limsup_{n\to\infty}x_n=\liminf_{n\to\infty}x_n.$$
+\endtt
+{\def\limsup{\mathop{\overline{\rm lim}}}
+\def\liminf{\mathop{\underline{\rm lim}}}
+$$\lim_{n\to\infty}x_n{\rm\ exists}\iff
+  \limsup_{n\to\infty}x_n=\liminf_{n\to\infty}x_n.$$}
+
+\myhr
+\noindent{\bf Summary}
+\item\bull |\bmod| (binary mod), |\pmod| (parenthetical mod)
+\beginmathdemo
+|$\gcd(m,n)=\gcd(n,m\bmod n)$|&\gcd(m,n)=\gcd(n,m\bmod n)\cr
+|$x\equiv y+1\pmod{m^2}$|&x\equiv y+1\pmod{m^2}\cr
+\endmathdemo
+
+\myhr
+
+\ansno18.4:
+$x\equiv0(\pmod y^n)$. He should have typed
+`|$x\equiv0\pmod{y^n}$|'. $x\equiv0\pmod{y^n}$
+
+\ansno18.5:
+|$${n\choose k}\equiv{\lfloor n/p\rfloor\choose|\parbreak
+|  \lfloor k/p\rfloor}{n\bmod p\choose k\bmod p}\pmod p.$$|
+$${n\choose k}\equiv{\lfloor n/p\rfloor\choose
+  \lfloor k/p\rfloor}{n\bmod p\choose k\bmod p}\pmod p.$$
+
+\ansno18.6:
+|$\bf\bar x^{\rm T}Mx={\rm0}\iff x=0$|\parbreak
+$\bf\bar x^{\rm T}Mx={\rm0}\iff x=0$
+
+\ansno18.7:
+|$S\subseteq{\mit\Sigma}\iff S\in{\cal S}$|\parbreak
+$S\subseteq{\mit\Sigma}\iff S\in{\cal S}$
+
+\ansno18.8:
+|$${\it available}+\sum_{i=1}^n\max\bigl({\it full}(i),|\parbreak
+|{\it reserved}(i)\bigr)={\it capacity}.$$|
+$$
+{\it available}+\sum_{i=1}^n\max\bigl({\it full}(i),{\it reserved}(i)\bigr)
+  ={\it capacity}.$$
+
+\ansno18.9:
+\begintt
+$$\vbox{\let\par=\endgraf
+\obeylines\sfcode`;=3000
+{\bf for $j:=2$ step $1$ until $n$ do}
+\quad {\bf begin} ${\it accum}:=A[j]$; $k:=j-1$; $A[0]:=\it accum$;
+\quad {\bf while $A[k]>\it accum$ do}
+\qquad {\bf begin} $A[k+1]:=A[k]$; $k:=k-1$;
+\qquad {\bf end};
+\quad $A[k+1]:=\it accum$;
+\quad {\bf end}.
+}$$
+\endtt
+
+$$\vbox{\let\par=\endgraf
+\obeylines\sfcode`;=3000
+{\bf for $j:=2$ step $1$ until $n$ do}
+\quad {\bf begin} ${\it accum}:=A[j]$; $k:=j-1$; $A[0]:=\it accum$;
+\quad {\bf while $A[k]>\it accum$ do}
+\qquad {\bf begin} $A[k+1]:=A[k]$; $k:=k-1$;
+\qquad {\bf end};
+\quad $A[k+1]:=\it accum$;
+\quad {\bf end}.
+}$$
+
+\ansno18.10:
+|Let $H$~be a Hilbert space,|\parbreak
+|$C$~a closed bounded convex subset of~$H$,|\parbreak
+|$T$~a nonexpansive self map of~$C$.
+|Suppose that as $n\to\infty$,|\parbreak $a_{n,k}\to0$ for each~$k$,
+|and $\gamma_n=\sum_{k=0}^\infty(a_{n,k+1}-|\allowbreak|a_{n,k})^+\to0$.
+| Then for each $x$~in~$C$, |\parbreak
+|$A_nx=\sum_{k=0}^\infty a_{n,k}T^kx$ converges weakly|\parbreak
+|to a fixed point of~$T$.|\parbreak
 
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
