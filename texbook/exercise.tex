@@ -1992,6 +1992,61 @@ Official answer: ``The first |+| will become a Bin atom, the second an
 Ord; hence the result is $x$, medium space, $+$, medium space, $+$, no
 space, 1.''
 
+\myhr
+\noindent{\bf Summary}
+\item\bull ellipses
+\item\item\bull\quad correct
+\begindisplay
+$\displaystyle x_1+\cdots+x_n\qquad {\rm and}\qquad (x_1,\ldots,x_n),$
+\enddisplay
+\item\item\bull\quad wrong
+\begindisplay
+$\displaystyle x_1+\ldots+x_n\qquad {\rm and}\qquad (x_1,\cdots,x_n).$
+\enddisplay
+\item\bull other cases
+\beginmathdemo
+|$x_1+\cdots+x_n$|&x_1+\cdots+x_n\cr
+|$x_1=\cdots=x_n=0$|&x_1=\cdots=x_n=0\cr
+|$A_1\times\cdots\times A_n$|&A_1\times\cdots\times A_n\cr
+|$f(x_1,\ldots,x_n)$|&f(x_1,\ldots,x_n)\cr
+|$x_1x_2\ldots x_n$|&x_1x_2\ldots x_n\cr
+|$(1-x)(1-x^2)\ldots(1-x^n)$|&(1-x)(1-x^2)\ldots(1-x^n)\cr
+|$n(n-1)\ldots(1)$|&n(n-1)\ldots(1)\cr
+\endmathdemo
+\item\bull at end of formula, thin space (|\,|, |~|) is needed
+\item\item\bull |Prove that $(1-x)^{-1}=1+x+x^2+\cdots\,$.|\break
+Prove that $(1-x)^{-1}=1+x+x^2+\cdots\,$.
+\item\item\bull |Clearly $a_i<b_i$ for $i=1$,~2, $\ldots\,$,~$n$.|\break
+Clearly $a_i<b_i$ for $i=1$,~2, $\ldots\,$,~$n$.
+\item\item\bull |The coefficients $c_0$,~$c_1$, \dots,~$c_n$ are positive.|\break
+The coefficients $c_0$,~$c_1$, \dots,~$c_n$ are positive.
+
+\myhr
+\ansno18.16:
+\item\bull |x_1+x_1x_2+\cdots+x_1x_2|\break
+$x_1+x_1x_2+\cdots+x_1x_2$
+
+\item\bull |(x_1,\ldots,x_n)\cdot(y_1,\ldots,y_n)=x_1y_1+\cdots+x_ny_n|\break
+$(x_1,\ldots,x_n)\cdot(y_1,\ldots,y_n)=x_1y_1+\cdots+x_ny_n$
+
+\ansno18.17:
+Official answer: ``The commas belong to the sentence, not to the formula; his
+decision to put them into math mode meant that \TeX\ didn't put large
+enough spaces after them. Also, his formula `$i=1, 2, \ldots, n$' allows
+no breaks between lines, except after the $=$, so he's risking
+overfull box problems. But suppose the sentence had been more terse:
+\begindisplay
+Clearly $a_i<b_i$ \ ($i=1,2,\ldots,n$).
+\enddisplay
+Then his idea would be basically correct:
+\begintt
+Clearly $a_i<b_i$ \ ($i=1,2,\ldots,n$).
+\endtt''
+
+\ansno18.18:
+Official answer: ``$\ldots$ |never\footnote*{Well \dots, hardly ever.} have| $\ldots$''
+
+
 
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
