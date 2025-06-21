@@ -2030,11 +2030,12 @@ $x_1+x_1x_2+\cdots+x_1x_2$
 $(x_1,\ldots,x_n)\cdot(y_1,\ldots,y_n)=x_1y_1+\cdots+x_ny_n$
 
 \ansno18.17:
-Official answer: ``The commas belong to the sentence, not to the formula; his
-decision to put them into math mode meant that \TeX\ didn't put large
-enough spaces after them. Also, his formula `$i=1, 2, \ldots, n$' allows
-no breaks between lines, except after the $=$, so he's risking
-overfull box problems. But suppose the sentence had been more terse:
+Official answer: ``The commas belong to the sentence, not to the
+formula; his decision to put them into math mode meant that \TeX\
+didn't put large enough spaces after them. Also, his formula `$i=1,
+2, \ldots, n$' allows no breaks between lines, except after the $=$,
+so he's risking overfull box problems. But suppose the sentence had
+been more terse:
 \begindisplay
 Clearly $a_i<b_i$ \ ($i=1,2,\ldots,n$).
 \enddisplay
@@ -2044,8 +2045,19 @@ Clearly $a_i<b_i$ \ ($i=1,2,\ldots,n$).
 \endtt''
 
 \ansno18.18:
-Official answer: ``$\ldots$ |never\footnote*{Well \dots, hardly ever.} have| $\ldots$''
+Official answer: ``$\ldots$ |never\footnote*{Well \dots, hardly ever.}
+have| $\ldots$''
 
+\ansno18.19:
+Offical answer: ``Neither formula will be broken between lines, but
+the thick spaces in the second formula will be set to their natural
+width while the thick spaces in the first formula will retain their
+stretchability.''
+
+\ansno18.20:
+Official answer: ``Set |\relpenalty||=10000| and
+|\binoppenalty||=10000|.  And you also need to change the definitions
+of\/ |\bmod| and |\pmod|, which insert their own penalties.''
 
 
 
