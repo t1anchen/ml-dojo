@@ -2059,6 +2059,53 @@ Official answer: ``Set |\relpenalty||=10000| and
 |\binoppenalty||=10000|.  And you also need to change the definitions
 of\/ |\bmod| and |\pmod|, which insert their own penalties.''
 
+\ansno18.21:
+|$$\bigl\{\,x^3\bigm|\||h(x)\in\{-1,0,+1\}\,\bigr\}$$|\parbreak
+$$\bigl\{\,x^3\bigm\vert h(x)\in\{-1,0,+1\}\,\bigr\}$$
+
+\ansno18.22:
+Official answer: ``|$\{\,p\mid p$~and $p+2$ are prime$\,\}$|, assuming that
+^|\mathsurround| is zero. The more difficult alternative
+`|$\{\,p\mid p\ {\rm and}\ p+2\rm\ are\ prime\,\}$|' is not a solution,
+because line breaks do not occur at |\|\] ^^|\space|
+(or at glue of any kind) within math formulas. Of course it may be best to
+display a formula like this, instead of breaking it between lines.''
+
+\ansno18.23:
+|$$f(x)=\cases{1/3&if $0\le x\le1$;\cr 2/3&if $3\le x\le4$;\cr|\hfil
+\break|0&elsewhere.\cr}$$|
+$$f(x) = \cases{1/3, &if $0 \leq x \leq 1$;\cr
+2/3, &if $3 \leq x \leq 4$;\cr
+0, &elsewhere\cr}$$
+
+\myhr
+\noindent{\bf Summary}
+\item\bull cases
+\item\bull horizontal braces
+\beginlongdisplaymathdemo
+\noalign{\vskip9pt}
+|$$\overbrace{x+\cdots+x}^{k\rm\;times}$$|&
+  \overbrace{x+\cdots+x}^{k\rm\;times}\cr
+\noalign{\vskip-6pt}
+|$$\underbrace{x+y+z}_{>\,0}.$$|&
+  \underbrace{x+y+z}_{>\,0}.\cr
+\endmathdemo
+\item\bull matrices
+\begintt
+$$A=\left(\matrix{x-\lambda&1&0\cr
+                  0&x-\lambda&1\cr
+                  0&0&x-\lambda\cr}\right).$$
+\endtt
+$$A=\left(\matrix{x-\lambda&1&0\cr
+                  0&x-\lambda&1\cr
+                  0&0&x-\lambda\cr}\right).$$
+\item\bull |\pmatrix|
+
+\ansno18.24:
+|$$\left\lgroup\matrix{a&b&c\cr d&e&f\cr}\right\rgroup$$|\parbreak
+$$\left\lgroup\matrix{a&b&c\cr d&e&f\cr}\right\rgroup$$
+|$$\left\lgroup\matrix{u&x\cr v&y\cr w&z\cr}\right\rgroup$$|\parbreak
+$$\left\lgroup\matrix{u&x\cr v&y\cr w&z\cr}\right\rgroup$$
 
 
 %% [2025-05-22T07:09:46+08:00] display \vsize and \hsize
