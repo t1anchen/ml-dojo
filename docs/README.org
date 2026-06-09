@@ -1,0 +1,55 @@
+#+TITLE: Overview of Algorithms in Machine Learning/NLP/AI
+#+AUTHOR: Tianchen
+#+STARTUP: hidestars showall
+#+OPTIONS: author:t date:t
+#+OPTIONS: timestamp:t toc:t creator:t ':t
+
+* Search
+
+** Nearest neighbour search (NNS)
+
+   - Concept: [[https://en.wikipedia.org/wiki/Nearest_neighbor_search][Wikipedia]]
+   - Implementations: [[https://github.com/hora-search/hora][hora-search/hora]] [[https://github.com/yahoojapan/NGT][yahoojapen/NGT]]
+
+* People
+
+  - messense (nlp, py, rs, pyo3): [[https://messense.me/about][personal]] [[https://www.v2ex.com/member/messense][v2ex]] [[https://twitter.com/messense][twitter]] [[https://hachyderm.io/@messense][mastron]] [[https://github.com/messense][github]] [[https://instagram.com/messense][instagram]]
+  - arthurmensch (mistralai, sklearn, py): [[https://github.com/arthurmensch?tab=repositories][github]]
+  - glample (mistralai, fair, py, cpp, torch): [[https://github.com/glample?tab=repositories][github]]
+  - DyeKuu (fair, fr): [[https://github.com/DyeKuu][github]]
+  - ritchie46 (polars): [[https://github.com/ritchie46][github]] (sponsoring messense)
+  - davidhewitt (pyo3, pydantic): [[https://github.com/davidhewitt][github]]
+  - leng-yue (fish-speech): [[https://github.com/leng-yue?tab=repositories][github]] [[https://lengyue.me/][personal]]
+
+* Projects
+
+** Fundamental
+   - numpy/numpy: [[https://github.com/numpy/numpy][github]]
+   - pandas-dev/pandas: [[https://github.com/pandas-dev/pandas][github]]
+   - pola-rs/polars: [[https://github.com/pola-rs/polars][github]]
+
+** Machine Learning
+   - huggingface/candle: [[https://github.com/huggingface/candle][github]]
+   - scikit-learn/scikit-learn: [[https://github.com/scikit-learn/scikit-learn][github]]
+
+** OCR
+   - tesseract-ocr/tesseract: [[https://github.com/tesseract-ocr/tesseract][github]]
+
+** TTS
+   - fishaudio/Bert-VITS2: [[https://github.com/fishaudio/Bert-VITS2][github]]
+   - fishaudio/fish-speech: [[https://github.com/fishaudio/fish-speech][github]]
+
+** UI
+   - streamlit/streamlit: [[https://github.com/streamlit/streamlit][github]]
+   - gradio-app/gradio: [[https://github.com/gradio-app/gradio][github]]
+   - lobehub/lobe-chat: [[https://github.com/lobehub/lobe-chat][github]]
+
+   More UI can be found in the [[https://github.com/JShollaj/Awesome-LLM-Web-UI][list]]
+
+# Local Variables:
+# mode: org
+# coding: utf-8-unix
+# org-crypt-key: nil
+# eval: (set-visual-wrap-column 100)
+# eval: (toggle-truncate-lines t)
+# End:
