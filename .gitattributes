@@ -1,0 +1,165 @@
+# enforce to keep the eol in workspace same as the eol in git repository
+#
+# [2024-10-12T14:08:40+08:00] If set to LF, the text files show as "modified"
+# when checked out on Windows. It would be better to make git automatically
+# convert eol when checked out. And core.autocrlf must be NOT SET (git set eol
+# as CRLF on windows and LF on macOS/Linux) to make gitattributes effect instead
+# of the setting in gitconfig
+* text eol=auto
+
+# spec
+# https://datatracker.ietf.org/doc/html/rfc4180#section-2
+*.csv          text eol=crlf
+# https://datatracker.ietf.org/doc/html/rfc6350#section-3.2
+*.vcf          text eol=crlf
+# https://datatracker.ietf.org/doc/html/rfc5545#section-3.1
+*.ics          text eol=crlf
+# https://datatracker.ietf.org/doc/html/rfc4880#section-7.1
+*.asc          text eol=crlf
+# [2026-04-26T14:16:57+08:00]
+# - RFC4716 (OpenSSH key) are open for CRLF or LF
+# - RFC 1421 (PEM) special notes for adoption on UNIX: https://datatracker.ietf.org/doc/html/rfc1421#section-4.3.1
+# For conveni
+*.pem          text eol=lf
+*.pub          text eol=lf
+# org
+*.org          text eol=lf
+*.org_archive  text eol=lf
+*.json         text
+*.toml         text eol=lf
+*.xml          text
+*.yaml         text
+*.yml          text
+# Text files where line endings should be preserved
+*.patch    -text
+*.diff     -text
+# Exclude files from exporting
+.gitattributes export-ignore
+.gitignore     export-ignore
+.gitkeep       export-ignore
+
+# posix
+*.bash     text eol=lf
+*.fish     text eol=lf
+*.ksh      text eol=lf
+*.sh       text eol=lf
+*.zsh      text eol=lf
+
+# windows
+*.cmd               text eol=crlf
+AppData/**/*.Config text eol=crlf
+*.bat               text eol=crlf
+*.proj              text eol=crlf
+*.props             text eol=crlf
+*.ps1               text eol=crlf
+*.sln               text eol=crlf
+*.vcxproj*          text eol=crlf
+*.exe               binary
+
+# text :: image
+*.svg  text
+
+# binary :: archive
+*.7z       binary
+*.bz       binary
+*.bz2      binary
+*.bzip2    binary
+*.gz       binary
+*.lz       binary
+*.lzma     binary
+*.rar      binary
+*.tar      binary
+*.taz      binary
+*.tbz      binary
+*.tbz2     binary
+*.tgz      binary
+*.tlz      binary
+*.txz      binary
+*.xz       binary
+*.Z        binary
+*.zip      binary
+*.zst      binary
+
+# binary :: reading
+*.epub binary
+*.pdf  binary
+
+# binary :: audio/vidio/image
+*.aac   binary
+*.aif   binary
+*.aifc  binary
+*.aiff  binary
+*.au    binary
+*.bmp   binary
+*.eps   binary
+*.icns  binary
+*.gif   binary
+*.ico   binary
+*.jpg   binary
+*.jpeg  binary
+*.m4a   binary
+*.mid   binary
+*.mkv   binary
+*.mov   binary
+*.mp3   binary
+*.mp4   binary
+*.oga   binary
+*.ogg   binary
+*.ogv   binary
+*.opus  binary
+*.pck   binary
+*.png   binary
+*.psd   binary
+*.tif   binary
+*.tiff  binary
+*.wav   binary
+*.webp  binary
+
+# binary :: archive
+*.tar    binary
+*.tar.gz binary
+*.whl    binary
+*.zip    binary
+
+# binary :: font
+*.ttf    binary
+*.woff   binary
+*.woff2  binary
+
+# binary :: libreoffice
+*.ods binary
+*.odf binary
+*.odt binary
+
+# binary :: msoffice
+*.doc  binary
+*.docx binary
+*.xls  binary
+*.xlsx binary
+*.xlsb binary
+*.ppt  binary
+*.pptx binary
+
+# binary :: db
+*.sqlite  binary
+*.sqlite3 binary
+*.db      binary
+*.db3     binary
+*.s3db    binary
+*.sl3     binary
+
+# binary :: key/crypt
+*.kdb     binary
+*.kdbx    binary
+*.pgp     binary
+*.gpg     binary
+
+# Language aware diff headers
+# https://tekin.co.uk/2020/10/better-git-diff-output-for-ruby-python-elixir-and-more
+# https://gist.github.com/tekin/12500956bd56784728e490d8cef9cb81
+*.c     diff=cpp
+*.h     diff=cpp
+*.css   diff=css
+*.html  diff=html
+*.py    diff=python
+*.md    diff=markdown
