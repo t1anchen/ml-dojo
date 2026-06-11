@@ -9,157 +9,157 @@
 
 # spec
 # https://datatracker.ietf.org/doc/html/rfc4180#section-2
-*.csv          text eol=crlf
+*.[Cc][Ss][Vv]          text eol=crlf
 # https://datatracker.ietf.org/doc/html/rfc6350#section-3.2
-*.vcf          text eol=crlf
+*.[Vv][Cc][Ff]          text eol=crlf
 # https://datatracker.ietf.org/doc/html/rfc5545#section-3.1
-*.ics          text eol=crlf
+*.[Ii][Cc][Ss]          text eol=crlf
 # https://datatracker.ietf.org/doc/html/rfc4880#section-7.1
-*.asc          text eol=crlf
+*.[Aa][Ss][Cc]          text eol=crlf
 # [2026-04-26T14:16:57+08:00]
 # - RFC4716 (OpenSSH key) are open for CRLF or LF
 # - RFC 1421 (PEM) special notes for adoption on UNIX: https://datatracker.ietf.org/doc/html/rfc1421#section-4.3.1
 # For conveni
-*.pem          text eol=lf
-*.pub          text eol=lf
+*.[Pp][Ee][Mm]          text eol=lf
+*.[Pp][Uu][Bb]          text eol=lf
 # org
-*.org          text eol=lf
-*.org_archive  text eol=lf
-*.json         text
-*.toml         text eol=lf
-*.xml          text
-*.yaml         text
-*.yml          text
+*.[Oo][Rr][Gg]                               text eol=lf
+*.[Oo][Rr][Gg]_[Aa][Rr][Cc][Hh][Ii][Vv][Ee]  text eol=lf
+*.[Jj][Ss][Oo][Nn]                           text
+*.[Tt][Oo][Mm][Ll]                           text eol=lf
+*.[Xx][Mm][Ll]                               text
+*.[Yy][Aa][Mm][Ll]                           text
+*.[Yy][Mm][Ll]                               text
 # Text files where line endings should be preserved
-*.patch    -text
-*.diff     -text
+*.[Pp][Aa][Tt][Cc][Hh]   -text
+*.[Dd][Ii][Ff][Ff]       -text
 # Exclude files from exporting
-.gitattributes export-ignore
-.gitignore     export-ignore
-.gitkeep       export-ignore
+.[Gg][Ii][Tt][Aa][Tt][Tt][Rr][Ii][Bb][Uu][Tt][Ee][Ss]  export-ignore
+.[Gg][Ii][Tt][Ii][Gg][Nn][Oo][Rr][Ee]                  export-ignore
+.[Gg][Ii][Tt][Kk][Ee][Ee][Pp]                          export-ignore
 
 # posix
-*.bash     text eol=lf
-*.fish     text eol=lf
-*.ksh      text eol=lf
-*.sh       text eol=lf
-*.zsh      text eol=lf
+*.[Bb][Aa][Ss][Hh]  text eol=lf
+*.[Ff][Ii][Ss][Hh]  text eol=lf
+*.[Kk][Ss][Hh]      text eol=lf
+*.[Ss][Hh]          text eol=lf
+*.[Zz][Ss][Hh]      text eol=lf
 
 # windows
-*.cmd               text eol=crlf
-AppData/**/*.Config text eol=crlf
-*.bat               text eol=crlf
-*.proj              text eol=crlf
-*.props             text eol=crlf
-*.ps1               text eol=crlf
-*.sln               text eol=crlf
-*.vcxproj*          text eol=crlf
-*.exe               binary
+*.[Cc][Mm][Dd]                         text eol=crlf
+AppData/**/*.[Cc][Oo][Nn][Ff][Ii][Gg]  text eol=crlf
+*.[Bb][Aa][Tt]                         text eol=crlf
+*.[Pp][Rr][Oo][Jj]                     text eol=crlf
+*.[Pp][Rr][Oo][Pp][Ss]                 text eol=crlf
+*.[Pp][Ss]1                            text eol=crlf
+*.[Ss][Ll][Nn]                         text eol=crlf
+*.[Vv][Cc][Xx][Pp][Rr][Oo][Jj]*        text eol=crlf
+*.[Ee][Xx][Ee]                         binary
 
 # text :: image
-*.svg  text
+*.[Ss][Vv][Gg]  text
 
 # binary :: archive
-*.7z       binary
-*.bz       binary
-*.bz2      binary
-*.bzip2    binary
-*.gz       binary
-*.lz       binary
-*.lzma     binary
-*.rar      binary
-*.tar      binary
-*.taz      binary
-*.tbz      binary
-*.tbz2     binary
-*.tgz      binary
-*.tlz      binary
-*.txz      binary
-*.xz       binary
-*.Z        binary
-*.zip      binary
-*.zst      binary
+*.7[Zz]              binary
+*.[Bb][Zz]           binary
+*.[Bb][Zz]2          binary
+*.[Bb][Zz][Ii][Pp]2  binary
+*.[Gg][Zz]           binary
+*.[Ll][Zz]           binary
+*.[Ll][Zz][Mm][Aa]   binary
+*.[Rr][Aa][Rr]       binary
+*.[Tt][Aa][Rr]       binary
+*.[Tt][Aa][Zz]       binary
+*.[Tt][Bb][Zz]       binary
+*.[Tt][Bb][Zz]2      binary
+*.[Tt][Gg][Zz]       binary
+*.[Tt][Ll][Zz]       binary
+*.[Tt][Xx][Zz]       binary
+*.[Xx][Zz]           binary
+*.[Zz]               binary
+*.[Zz][Ii][Pp]       binary
+*.[Zz][Ss][Tt]       binary
 
 # binary :: reading
-*.epub binary
-*.pdf  binary
+*.[Ee][Pp][Uu][Bb]  binary
+*.[Pp][Dd][Ff]      binary
 
 # binary :: audio/vidio/image
-*.aac   binary
-*.aif   binary
-*.aifc  binary
-*.aiff  binary
-*.au    binary
-*.bmp   binary
-*.eps   binary
-*.icns  binary
-*.gif   binary
-*.ico   binary
-*.jpg   binary
-*.jpeg  binary
-*.m4a   binary
-*.mid   binary
-*.mkv   binary
-*.mov   binary
-*.mp3   binary
-*.mp4   binary
-*.oga   binary
-*.ogg   binary
-*.ogv   binary
-*.opus  binary
-*.pck   binary
-*.png   binary
-*.psd   binary
-*.tif   binary
-*.tiff  binary
-*.wav   binary
-*.webp  binary
+*.[Aa][Aa][Cc]      binary
+*.[Aa][Ii][Ff]      binary
+*.[Aa][Ii][Ff][Cc]  binary
+*.[Aa][Ii][Ff][Ff]  binary
+*.[Aa][Uu]          binary
+*.[Bb][Mm][Pp]      binary
+*.[Ee][Pp][Ss]      binary
+*.[Ii][Cc][Nn][Ss]  binary
+*.[Gg][Ii][Ff]      binary
+*.[Ii][Cc][Oo]      binary
+*.[Jj][Pp][Gg]      binary
+*.[Jj][Pp][Ee][Gg]  binary
+*.[Mm]4[Aa]         binary
+*.[Mm][Ii][Dd]      binary
+*.[Mm][Kk][Vv]      binary
+*.[Mm][Oo][Vv]      binary
+*.[Mm][Pp]3         binary
+*.[Mm][Pp]4         binary
+*.[Oo][Gg][Aa]      binary
+*.[Oo][Gg][Gg]      binary
+*.[Oo][Gg][Vv]      binary
+*.[Oo][Pp][Uu][Ss]  binary
+*.[Pp][Cc][Kk]      binary
+*.[Pp][Nn][Gg]      binary
+*.[Pp][Ss][Dd]      binary
+*.[Tt][Ii][Ff]      binary
+*.[Tt][Ii][Ff][Ff]  binary
+*.[Ww][Aa][Vv]      binary
+*.[Ww][Ee][Bb][Pp]  binary
 
 # binary :: archive
-*.tar    binary
-*.tar.gz binary
-*.whl    binary
-*.zip    binary
+*.[Tt][Aa][Rr]           binary
+*.[Tt][Aa][Rr].[Gg][Zz]  binary
+*.[Ww][Hh][Ll]           binary
+*.[Zz][Ii][Pp]           binary
 
 # binary :: font
-*.ttf    binary
-*.woff   binary
-*.woff2  binary
+*.[Tt][Tt][Ff]       binary
+*.[Ww][Oo][Ff][Ff]   binary
+*.[Ww][Oo][Ff][Ff]2  binary
 
 # binary :: libreoffice
-*.ods binary
-*.odf binary
-*.odt binary
+*.[Oo][Dd][Ss] binary
+*.[Oo][Dd][Ff] binary
+*.[Oo][Dd][Tt] binary
 
 # binary :: msoffice
-*.doc  binary
-*.docx binary
-*.xls  binary
-*.xlsx binary
-*.xlsb binary
-*.ppt  binary
-*.pptx binary
+*.[Dd][Oo][Cc]      binary
+*.[Dd][Oo][Cc][Xx]  binary
+*.[Xx][Ll][Ss]      binary
+*.[Xx][Ll][Ss][Xx]  binary
+*.[Xx][Ll][Ss][Bb]  binary
+*.[Pp][Pp][Tt]      binary
+*.[Pp][Pp][Tt][Xx]  binary
 
 # binary :: db
-*.sqlite  binary
-*.sqlite3 binary
-*.db      binary
-*.db3     binary
-*.s3db    binary
-*.sl3     binary
+*.[Ss][Qq][Ll][Ii][Tt][Ee]   binary
+*.[Ss][Qq][Ll][Ii][Tt][Ee]3  binary
+*.[Dd][Bb]                   binary
+*.[Dd][Bb]3                  binary
+*.[Ss]3[Dd][Bb]              binary
+*.[Ss][Ll]3                  binary
 
 # binary :: key/crypt
-*.kdb     binary
-*.kdbx    binary
-*.pgp     binary
-*.gpg     binary
+*.[Kk][Dd][Bb]      binary
+*.[Kk][Dd][Bb][Xx]  binary
+*.[Pp][Gg][Pp]      binary
+*.[Gg][Pp][Gg]      binary
 
 # Language aware diff headers
 # https://tekin.co.uk/2020/10/better-git-diff-output-for-ruby-python-elixir-and-more
 # https://gist.github.com/tekin/12500956bd56784728e490d8cef9cb81
-*.c     diff=cpp
-*.h     diff=cpp
-*.css   diff=css
-*.html  diff=html
-*.py    diff=python
-*.md    diff=markdown
+*.[Cc]              diff=cpp
+*.[Hh]              diff=cpp
+*.[Cc][Ss][Ss]      diff=css
+*.[Hh][Tt][Mm][Ll]  diff=html
+*.[Pp][Yy]          diff=python
+*.[Mm][Dd]          diff=markdown
